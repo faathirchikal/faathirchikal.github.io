@@ -1,0 +1,5 @@
+denylist.txt
+CLAUDE.md
+_site/
+.jekyll-cache/
+.DS_Store
