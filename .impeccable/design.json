@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T00:00:00Z",
+  "title": "Design System: Faathir Chikal Asyuraa",
+  "extensions": {
+    "colorMeta": {
+      "yellow": {
+        "role": "primary",
+        "displayName": "Departure Yellow",
+        "canonical": "oklch(84.8% 0.174 92)",
+        "tonalRamp": [
+          "oklch(15% 0.120 92)",
+          "oklch(26% 0.120 92)",
+          "oklch(38% 0.174 92)",
+          "oklch(50% 0.174 92)",
+          "oklch(62% 0.174 92)",
+          "oklch(74% 0.174 92)",
+          "oklch(85% 0.174 92)",
+          "oklch(95% 0.120 92)"
+        ]
+      },
+      "on-yellow": {
+        "role": "neutral",
+        "displayName": "On-Yellow Ink",
+        "canonical": "oklch(19.1% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0.000 0)",
+          "oklch(26% 0.000 0)",
+          "oklch(38% 0.000 0)",
+          "oklch(50% 0.000 0)",
+          "oklch(62% 0.000 0)",
+          "oklch(74% 0.000 0)",
+          "oklch(85% 0.000 0)",
+          "oklch(95% 0.000 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Timetable Ink",
+        "canonical": "oklch(19.1% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0.000 0)",
+          "oklch(26% 0.000 0)",
+          "oklch(38% 0.000 0)",
+          "oklch(50% 0.000 0)",
+          "oklch(62% 0.000 0)",
+          "oklch(74% 0.000 0)",
+          "oklch(85% 0.000 0)",
+          "oklch(95% 0.000 0)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "oklch(43.4% 0.013 77)",
+        "tonalRamp": [
+          "oklch(15% 0.013 77)",
+          "oklch(26% 0.013 77)",
+          "oklch(38% 0.013 77)",
+          "oklch(50% 0.013 77)",
+          "oklch(62% 0.013 77)",
+          "oklch(74% 0.013 77)",
+          "oklch(85% 0.013 77)",
+          "oklch(95% 0.013 77)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "oklch(98.5% 0.004 91)",
+        "tonalRamp": [
+          "oklch(15% 0.004 91)",
+          "oklch(26% 0.004 91)",
+          "oklch(38% 0.004 91)",
+          "oklch(50% 0.004 91)",
+          "oklch(62% 0.004 91)",
+          "oklch(74% 0.004 91)",
+          "oklch(85% 0.004 91)",
+          "oklch(95% 0.004 91)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(87.1% 0.013 87)",
+        "tonalRamp": [
+          "oklch(15% 0.013 87)",
+          "oklch(26% 0.013 87)",
+          "oklch(38% 0.013 87)",
+          "oklch(50% 0.013 87)",
+          "oklch(62% 0.013 87)",
+          "oklch(74% 0.013 87)",
+          "oklch(85% 0.013 87)",
+          "oklch(95% 0.013 87)"
+        ]
+      },
+      "signal": {
+        "role": "secondary",
+        "displayName": "Signal Red",
+        "canonical": "oklch(53% 0.207 22)",
+        "tonalRamp": [
+          "oklch(15% 0.120 22)",
+          "oklch(26% 0.120 22)",
+          "oklch(38% 0.207 22)",
+          "oklch(50% 0.207 22)",
+          "oklch(62% 0.207 22)",
+          "oklch(74% 0.207 22)",
+          "oklch(85% 0.207 22)",
+          "oklch(95% 0.120 22)"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Timetable Ink (dark)",
+        "canonical": "oklch(93.4% 0.01 88)",
+        "tonalRamp": [
+          "oklch(15% 0.010 88)",
+          "oklch(26% 0.010 88)",
+          "oklch(38% 0.010 88)",
+          "oklch(50% 0.010 88)",
+          "oklch(62% 0.010 88)",
+          "oklch(74% 0.010 88)",
+          "oklch(85% 0.010 88)",
+          "oklch(95% 0.010 88)"
+        ]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Faded Ink (dark)",
+        "canonical": "oklch(71.7% 0.015 85)",
+        "tonalRamp": [
+          "oklch(15% 0.015 85)",
+          "oklch(26% 0.015 85)",
+          "oklch(38% 0.015 85)",
+          "oklch(50% 0.015 85)",
+          "oklch(62% 0.015 85)",
+          "oklch(74% 0.015 85)",
+          "oklch(85% 0.015 85)",
+          "oklch(95% 0.015 85)"
+        ]
+      },
+      "ground-dark": {
+        "role": "neutral",
+        "displayName": "Warm Paper (dark)",
+        "canonical": "oklch(18.2% 0.002 107)",
+        "tonalRamp": [
+          "oklch(15% 0.002 107)",
+          "oklch(26% 0.002 107)",
+          "oklch(38% 0.002 107)",
+          "oklch(50% 0.002 107)",
+          "oklch(62% 0.002 107)",
+          "oklch(74% 0.002 107)",
+          "oklch(85% 0.002 107)",
+          "oklch(95% 0.002 107)"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Hairline (dark)",
+        "canonical": "oklch(31.8% 0.008 85)",
+        "tonalRamp": [
+          "oklch(15% 0.008 85)",
+          "oklch(26% 0.008 85)",
+          "oklch(38% 0.008 85)",
+          "oklch(50% 0.008 85)",
+          "oklch(62% 0.008 85)",
+          "oklch(74% 0.008 85)",
+          "oklch(85% 0.008 85)",
+          "oklch(95% 0.008 85)"
+        ]
+      },
+      "signal-dark": {
+        "role": "secondary",
+        "displayName": "Signal Red (dark)",
+        "canonical": "oklch(69.2% 0.2 17)",
+        "tonalRamp": [
+          "oklch(15% 0.120 17)",
+          "oklch(26% 0.120 17)",
+          "oklch(38% 0.200 17)",
+          "oklch(50% 0.200 17)",
+          "oklch(62% 0.200 17)",
+          "oklch(74% 0.200 17)",
+          "oklch(85% 0.200 17)",
+          "oklch(95% 0.120 17)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name on the home band only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Case-study and essay titles, max 22ch."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section heads under a 2px ink rule; subsections at 1.25rem."
+      },
+      "row-title": {
+        "displayName": "Row title",
+        "purpose": "Project links in the departure table."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text in the 40rem column, tabular figures."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Row summaries and prose tables, muted in rows."
+      },
+      "status": {
+        "displayName": "Status",
+        "purpose": "Uppercase status values in the departure table's left column."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase column heads in the departure table."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "34rem",
+        "purpose": "Departure table status column narrows to 7.5rem and type steps down."
+      }
+    ],
+    "themes": [
+      {
+        "name": "dark",
+        "trigger": "prefers-color-scheme: dark",
+        "swaps": {
+          "ink": "ink-dark",
+          "muted": "muted-dark",
+          "ground": "ground-dark",
+          "rule": "rule-dark",
+          "signal": "signal-dark",
+          "column-head background": "rule-dark",
+          "column-head text": "ink-dark"
+        },
+        "unchanged": [
+          "yellow",
+          "on-yellow"
+        ]
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Home Masthead Band",
+      "kind": "custom",
+      "refersTo": "masthead-band",
+      "description": "Full-width yellow band with the name, headline and CV link; home page only.",
+      "html": "<header class=\"ds-band\"><h1>Faathir Chikal Asyuraa</h1><p class=\"ds-headline\">Applied Data Scientist | Optimisation, Bandits &amp; Reinforcement Learning</p><a href=\"#\">CV (PDF)</a></header>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Semi+Condensed:wght@500;700&display=swap');:host{--yellow:#f6c800;--on-yellow:#141414;--ink:#141414;--muted:#555049;--ground:#fbfaf7;--rule:#d8d4cb;--head-bg:#141414;--head-fg:#fbfaf7;--signal:#c8102e;--frame:'Barlow Semi Condensed','Arial Narrow',sans-serif;--read:'Barlow',system-ui,sans-serif;}.ds-band{background:var(--yellow);color:var(--on-yellow);font-family:var(--frame);padding:clamp(2.5rem,8vw,4.5rem) 16px clamp(1.5rem,4vw,2.25rem);}.ds-band h1{margin:0;font-weight:700;font-size:clamp(2.5rem,8vw,4.25rem);line-height:.95;letter-spacing:-.02em;}.ds-headline{margin:1rem 0 0;font-weight:500;font-size:clamp(1.125rem,2.6vw,1.375rem);line-height:1.3;}.ds-band a{display:inline-block;margin-top:1rem;font-weight:700;color:inherit;text-decoration-color:color-mix(in srgb,var(--on-yellow) 35%,transparent);text-decoration-thickness:2px;text-underline-offset:.2em;}.ds-band a:hover{text-decoration-color:var(--on-yellow);}.ds-band a:focus-visible{outline:3px solid var(--on-yellow);outline-offset:2px;}"
+    },
+    {
+      "name": "Running Head",
+      "kind": "nav",
+      "refersTo": "running-head",
+      "description": "The yellow band reduced to name and CV link on inner pages.",
+      "html": "<header class=\"ds-run\"><a class=\"ds-home\" href=\"#\">Faathir Chikal Asyuraa</a><a href=\"#\">CV (PDF)</a></header>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Semi+Condensed:wght@500;700&display=swap');:host{--yellow:#f6c800;--on-yellow:#141414;--ink:#141414;--muted:#555049;--ground:#fbfaf7;--rule:#d8d4cb;--head-bg:#141414;--head-fg:#fbfaf7;--signal:#c8102e;--frame:'Barlow Semi Condensed','Arial Narrow',sans-serif;--read:'Barlow',system-ui,sans-serif;}.ds-run{background:var(--yellow);color:var(--on-yellow);font-family:var(--frame);font-weight:700;padding:.75rem 16px;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;}.ds-run a{color:inherit;text-decoration-color:color-mix(in srgb,var(--on-yellow) 35%,transparent);text-decoration-thickness:2px;text-underline-offset:.2em;}.ds-run .ds-home{font-size:1.125rem;text-decoration:none;}.ds-run a:hover{text-decoration-color:var(--on-yellow);}.ds-run a:focus-visible{outline:3px solid var(--on-yellow);outline-offset:2px;}"
+    },
+    {
+      "name": "Departure Table",
+      "kind": "custom",
+      "refersTo": "departure-row",
+      "description": "The work index: ink column-head bar, then hairline-ruled rows with status left and title plus summary right.",
+      "html": "<ul class=\"ds-dep\"><li class=\"ds-heads\"><span>Status</span><span>Project</span></li><li><span class=\"ds-status\">In client testing</span><div><a href=\"#\">A branch replenishment planner</a><p>A four-stage planner that sets branch stock and routes trucks.</p></div></li><li><span class=\"ds-status\">In development</span><div><a href=\"#\">A governed platform for data question agents</a><p>Teams describe tables in YAML and get a governed agent.</p></div></li></ul>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Semi+Condensed:wght@500;700&display=swap');:host{--yellow:#f6c800;--on-yellow:#141414;--ink:#141414;--muted:#555049;--ground:#fbfaf7;--rule:#d8d4cb;--head-bg:#141414;--head-fg:#fbfaf7;--signal:#c8102e;--frame:'Barlow Semi Condensed','Arial Narrow',sans-serif;--read:'Barlow',system-ui,sans-serif;}.ds-dep{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--rule);background:var(--ground);color:var(--ink);font:400 1.125rem/1.6 var(--read);}.ds-dep li{display:grid;grid-template-columns:9.5rem 1fr;gap:1.25rem;padding:1rem .5rem;border-top:1px solid var(--rule);}.ds-dep .ds-heads{font-family:var(--frame);font-weight:700;font-size:.875rem;text-transform:uppercase;letter-spacing:.08em;background:var(--head-bg);color:var(--head-fg);padding:.3rem .5rem;border-top:0;}.ds-heads+li{border-top:0;}.ds-status{font-family:var(--frame);font-weight:700;font-size:1.0625rem;text-transform:uppercase;letter-spacing:.04em;line-height:1.25;padding-top:.2rem;}.ds-dep a{font-family:var(--frame);font-weight:700;font-size:1.3125rem;line-height:1.2;color:inherit;text-decoration-color:var(--rule);text-decoration-thickness:2px;text-underline-offset:.2em;}.ds-dep a:hover{text-decoration-color:var(--signal);}.ds-dep a:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}.ds-dep p{margin:.35rem 0 0;color:var(--muted);font-size:1rem;line-height:1.5;}"
+    },
+    {
+      "name": "Status Notice",
+      "kind": "custom",
+      "refersTo": "status-notice",
+      "description": "Facts row under a case-study title: ink rule, muted field label, status in bold condensed, then a muted summary line.",
+      "html": "<div class=\"ds-wrap\"><p class=\"ds-notice\"><span>Status</span> In development</p><p class=\"ds-summary\">Kalbe Farma · acting Data Science Lead · sole designer and builder.</p></div>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Semi+Condensed:wght@500;700&display=swap');:host{--yellow:#f6c800;--on-yellow:#141414;--ink:#141414;--muted:#555049;--ground:#fbfaf7;--rule:#d8d4cb;--head-bg:#141414;--head-fg:#fbfaf7;--signal:#c8102e;--frame:'Barlow Semi Condensed','Arial Narrow',sans-serif;--read:'Barlow',system-ui,sans-serif;}.ds-wrap{background:var(--ground);color:var(--ink);}.ds-notice{font-family:var(--frame);font-weight:700;font-size:1.125rem;margin:0;padding:.5rem 0 .25rem;border-top:2px solid var(--ink);}.ds-notice span{font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:.875rem;color:var(--muted);margin-right:.75rem;}.ds-summary{font-family:var(--frame);font-weight:500;font-size:1rem;color:var(--muted);margin:0;padding-bottom:.5rem;border-bottom:1px solid var(--rule);}"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "title",
+      "description": "Prose section head in bold condensed under a 2px ink rule.",
+      "html": "<div class=\"ds-sec\"><h2>How I knew it worked</h2><p>Body text in Barlow at 1.125rem with a 1.6 line height and tabular figures: 43.5%.</p></div>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Semi+Condensed:wght@500;700&display=swap');:host{--yellow:#f6c800;--on-yellow:#141414;--ink:#141414;--muted:#555049;--ground:#fbfaf7;--rule:#d8d4cb;--head-bg:#141414;--head-fg:#fbfaf7;--signal:#c8102e;--frame:'Barlow Semi Condensed','Arial Narrow',sans-serif;--read:'Barlow',system-ui,sans-serif;}.ds-sec{background:var(--ground);color:var(--ink);font:400 1.125rem/1.6 var(--read);font-variant-numeric:tabular-nums;max-width:40rem;}.ds-sec h2{font-family:var(--frame);font-weight:700;font-size:1.5rem;line-height:1.15;margin:0 0 .5em;border-top:2px solid var(--ink);padding-top:.5rem;}.ds-sec p{margin:0 0 1em;}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "description": "Inline link: inherited color, hairline underline, red on hover, red focus outline.",
+      "html": "<p class=\"ds-p\">Read the <a href=\"#\">thesis repo</a> for the benchmark.</p>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Semi+Condensed:wght@500;700&display=swap');:host{--yellow:#f6c800;--on-yellow:#141414;--ink:#141414;--muted:#555049;--ground:#fbfaf7;--rule:#d8d4cb;--head-bg:#141414;--head-fg:#fbfaf7;--signal:#c8102e;--frame:'Barlow Semi Condensed','Arial Narrow',sans-serif;--read:'Barlow',system-ui,sans-serif;}.ds-p{background:var(--ground);color:var(--ink);font:400 1.125rem/1.6 var(--read);}.ds-p a{color:inherit;text-decoration-color:var(--rule);text-decoration-thickness:2px;text-underline-offset:.2em;}.ds-p a:hover{text-decoration-color:var(--signal);}.ds-p a:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}"
+    },
+    {
+      "name": "Footer",
+      "kind": "nav",
+      "description": "Wrapping row of frame-500 contact links under a 2px ink rule.",
+      "html": "<footer class=\"ds-foot\"><a href=\"#\">CV (PDF)</a><a href=\"#\">email</a><a href=\"#\">LinkedIn</a><a href=\"#\">GitHub</a></footer>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Semi+Condensed:wght@500;700&display=swap');:host{--yellow:#f6c800;--on-yellow:#141414;--ink:#141414;--muted:#555049;--ground:#fbfaf7;--rule:#d8d4cb;--head-bg:#141414;--head-fg:#fbfaf7;--signal:#c8102e;--frame:'Barlow Semi Condensed','Arial Narrow',sans-serif;--read:'Barlow',system-ui,sans-serif;}.ds-foot{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:1rem 0 3rem;border-top:2px solid var(--ink);font-family:var(--frame);font-weight:500;background:var(--ground);color:var(--ink);}.ds-foot a{color:inherit;text-decoration-color:var(--rule);text-decoration-thickness:2px;text-underline-offset:.2em;}.ds-foot a:hover{text-decoration-color:var(--signal);}.ds-foot a:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Printed Timetable",
+    "overview": "The site is set like an operations timetable: a yellow departure-poster band on top, then a quiet warm-white sheet of ruled rows. Square, flat, and text-only. Hierarchy comes from the condensed face, weight, and horizontal rules, never from boxes or depth.\n\nIt works in light and dark (via `prefers-color-scheme`). The yellow band stays yellow in both; only the sheet below changes.",
+    "keyCharacteristics": [
+      "One full-width yellow band per page; everything else is ink on ground.",
+      "Two faces: condensed for the frame, regular Barlow for reading.",
+      "Horizontal rules do all the structuring; no cards, no shadows, square corners.",
+      "Status set in bold condensed caps where a timetable puts the time.",
+      "Tabular figures everywhere."
+    ],
+    "rules": [
+      {
+        "name": "The One Band Rule",
+        "body": "Yellow appears as one full-width band at the top of a page (and as the selection color). It never becomes a button, badge, or highlight inside the sheet.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Only Rule",
+        "body": "Red marks interaction (hover, focus) and nothing else; it never colors static text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Faces Rule",
+        "body": "Condensed for anything that frames or labels (band, titles, heads, status, footer); Barlow for anything read as sentences.",
+        "section": "typography"
+      },
+      {
+        "name": "The Caps Belong In Columns Rule",
+        "body": "Uppercase tracked type is for column heads, status values, and field labels in a row. It is not a kicker above a title.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** keep the yellow band as the only full-width color field, with ink text on it in both themes.",
+      "**Do** structure with rules: 1px Hairline between rows, 2px Timetable Ink above sections and the footer.",
+      "**Do** put a project's status in the left column in bold condensed caps, in plain words.",
+      "**Do** keep reading text in Barlow 400 at 1.125rem/1.6 inside the 40rem column.",
+      "**Do** load any new weight before using it; only Barlow 400/600/700 and Semi Condensed 500/700 ship."
+    ],
+    "donts": [
+      "**Don't** put content in bordered or shadowed cards.",
+      "**Don't** use Signal Red for anything but hover and focus.",
+      "**Don't** add shadows or rounded corners (inline code excepted).",
+      "**Don't** use tracked caps as a kicker or eyebrow above a heading."
+    ]
+  }
+}

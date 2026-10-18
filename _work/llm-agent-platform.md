@@ -54,7 +54,7 @@ A user with no access in a domain is refused before any model call.
 **Isolation.** Each domain runs as its own process and container, so a broken YAML file takes down one
 agent only.
 
-![Request path: user, routing agent, domain agent, JSON spec, semantic layer with access filter, SQL guard, warehouse](../diagrams/agent-request-path.svg)
+![Request path: user, routing agent, domain agent, JSON spec, semantic layer with access filter, SQL guard, warehouse]({{ "/diagrams/agent-request-path.svg" | relative_url }})
 
 ## How I knew it worked
 

@@ -3,3 +3,5 @@ CLAUDE.md
 _site/
 .jekyll-cache/
 .DS_Store
+.impeccable/questions/
+.impeccable/review/

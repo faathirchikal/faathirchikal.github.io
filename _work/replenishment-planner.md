@@ -57,7 +57,7 @@ of solutions instead of a fixed time, so plans reproduce across machines.
 planner's override is kept beside the engine's figure, and every accept, change or skip is stored
 with who and when.
 
-![Four stages: standard stock, shipment need, allocation, transport, with planner override at each](../diagrams/replenishment-stages.svg)
+![Four stages: standard stock, shipment need, allocation, transport, with planner override at each]({{ "/diagrams/replenishment-stages.svg" | relative_url }})
 
 ## How I knew it worked
 

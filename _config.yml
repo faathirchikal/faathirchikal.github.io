@@ -1,0 +1,16 @@
+title: Faathir Chikal Asyuraa
+description: Applied Data Scientist (acting Data Science Lead) | Optimisation, Bandits & Reinforcement Learning
+email: faathir98@gmail.com
+linkedin: https://www.linkedin.com/in/faathir-chikal-asyuraa-608bb7180/
+github: https://github.com/faathirchikal
+
+collections:
+  work:
+    output: true
+    permalink: /work/:name/
+
+defaults:
+  - scope: {path: ""}
+    values: {layout: page}
+
+exclude: [specs, CLAUDE.md, PRODUCT.md, DESIGN.md, denylist.txt]
