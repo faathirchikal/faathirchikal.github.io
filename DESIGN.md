@@ -186,6 +186,9 @@ Full width, collapsed, left-aligned, 1rem text. Header cells in bold condensed o
 ### Footer
 A wrapping row of frame-500 links (CV, email, LinkedIn, GitHub) under a 2px ink rule.
 
+### Figures
+Project diagrams are standalone SVGs in `diagrams/`, drawn top to bottom at no more than 600 wide. Each carries its own `<style>`: 1.5px ink lines and boxes, frame-face labels, muted arrow labels, and a `prefers-color-scheme` block that swaps ink and muted for dark mode. Yellow fills only the element the case study turns on, and its text stays ink in both modes. Thesis figures are the paper and poster PNGs in `figures/`, shown as published. Every figure links to its own file so a phone reader can open it full size.
+
 ## Do's and Don'ts
 
 ### Do:

@@ -16,6 +16,8 @@ Research on learned traffic-signal control mostly uses car traffic on tidy grids
 where the gains actually come from on a road like this. Is it the learning itself, coordination
 between junctions, or the rules on which signal phase may come next?
 
+[![Published work assumes cars that hold their lanes. On this corridor, motorcycles fill every gap and enter the junction.]({{ "/figures/d_filtering.png" | relative_url }})]({{ "/figures/d_filtering.png" | relative_url }})
+
 ## Constraints
 
 - **No public origin-destination data exists for Jakarta,** so traffic demand had to be built and
@@ -25,12 +27,18 @@ between junctions, or the rules on which signal phase may come next?
   skips around may look good only because it breaks that rule.
 - **Learned controllers are noisy.** One lucky training run proves nothing.
 
+[![Three phase-order rules: a fixed rotation, a rotation that may skip an empty phase, and a free choice of any phase next.]({{ "/figures/d_phases.png" | relative_url }})]({{ "/figures/d_phases.png" | relative_url }})
+
 ## Approach
+
+[![Study overview: a 12-junction Jakarta corridor, nine controllers, and three levers tested. At twelve junctions the control strategy is worth 143 halting vehicles, the timing rules 35 to 38, and coordination under 15.]({{ "/figures/overview.png" | relative_url }})]({{ "/figures/overview.png" | relative_url }})
 
 **The corridor.** I built a 12-junction model of the Cawang to Jatinegara corridor in SUMO, a
 traffic simulator, from OpenStreetMap. Demand comes from a gravity model, checked against travel
 times from TomTom and Google Routes: 13,825 trips over two simulated hours, with about 74%
 motorcycles.
+
+[![The corridor map with its twelve junctions, and the nested corridor sizes from one to twelve junctions.]({{ "/figures/corridor_map.png" | relative_url }})]({{ "/figures/corridor_map.png" | relative_url }})
 
 **Nine controllers.** These are fixed-time, coordinated fixed-time, two versions of Max-Pressure
 (the strongest classical method here), and learned controllers trained with PPO. The learned ones
@@ -59,6 +67,8 @@ learning starts to pay.
 | Full corridor (12 junctions) | Learned control holds 43.5% less queue than the best classical method |
 | Coordination through a central critic | Every critic tested is equivalent to independent agents |
 | Deployable phase order | Costs 19 to 20% more queue than a free choice of phase, and re-tuning the minimum green recovers about half |
+
+[![Queues by corridor size for each controller type, and the best learned controller against Max-Pressure. The gap leaves the 15-vehicle margin from six junctions and reaches 43.5% at twelve.]({{ "/figures/scale_crossover.png" | relative_url }})]({{ "/figures/scale_crossover.png" | relative_url }})
 
 At twelve junctions the levers rank clearly. The control strategy matters most, at about 143
 fewer halting vehicles from about 330. The deployable phase order costs 35 to 38. Coordination

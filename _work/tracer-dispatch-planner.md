@@ -49,7 +49,7 @@ That turns one hard problem into a sweep of easy ones.
    dose is anchored to the planned departure, so a late truck can only raise the dose and never leaves
    a hospital short.
 
-![Sweep over departure time and fleet size, each cell a routing solve, dose back-solved from the departure anchor]({{ "/diagrams/tracer-sweep.svg" | relative_url }})
+[![Sweep over departure time and fleet size, each cell a routing solve, dose back-solved from the departure anchor]({{ "/diagrams/tracer-sweep.svg" | relative_url }})]({{ "/diagrams/tracer-sweep.svg" | relative_url }})
 
 **Refusing to guess.** A missing travel time is reported, never treated as zero. A partial solve is
 an error, never a shorter plan. A plan that has been reviewed is used exactly as approved and never

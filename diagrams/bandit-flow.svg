@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 596" width="390" height="596" role="img" aria-label="Allocation flow: discounted daily results become Beta posteriors; each arm is scored by its lift over control, turned into softmax shares, floored, and used to split treatment customers.">
+<title>Allocation flow: discounted daily results become Beta posteriors; each arm is scored by its lift over control, turned into softmax shares, floored, and used to split treatment customers.</title>
+<style>
+text{font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;font-size:14px;fill:#141414}
+.m{fill:#555049}.s{font-size:12.5px}.b{font-weight:700}
+.box{fill:none;stroke:#141414;stroke-width:1.5}
+.hl{fill:#f6c800;stroke:#141414;stroke-width:1.5}
+.ln{fill:none;stroke:#141414;stroke-width:1.5}
+.dash{stroke-dasharray:5 4}
+.ar{fill:#141414}
+.cell{fill:none;stroke:#8a857c;stroke-width:1}
+@media (prefers-color-scheme:dark){
+text{fill:#ece9e2}.m{fill:#a8a399}
+.box,.ln{stroke:#ece9e2}.ar{fill:#ece9e2}.hl{stroke:#f6c800}.cell{stroke:#6b665e}
+}
+text.on{fill:#141414}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ar" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect x="10" y="8" width="280" height="48" class="box"/>
+<text x="150.0" y="29.0" text-anchor="middle" class="b">Daily results</text>
+<text x="150.0" y="46.0" text-anchor="middle" class="s m">sends and conversions, each arm and control</text>
+<line x1="150" y1="56" x2="150" y2="95" class="ln" marker-end="url(#a)"/>
+<text x="162" y="80.0" text-anchor="start" class="s m">weight 0.99 per day of age</text>
+<rect x="10" y="96" width="280" height="48" class="box"/>
+<text x="150.0" y="125.0" text-anchor="middle" class="b">Discounted counts</text>
+<line x1="150" y1="144" x2="150" y2="183" class="ln" marker-end="url(#a)"/>
+<text x="162" y="168.0" text-anchor="start" class="s m">Beta posterior, uniform prior</text>
+<rect x="10" y="184" width="88" height="48" class="box"/>
+<text x="54.0" y="213.0" text-anchor="middle" class="b">arm A</text>
+<rect x="106" y="184" width="88" height="48" class="box"/>
+<text x="150.0" y="213.0" text-anchor="middle" class="b">arm B</text>
+<rect x="202" y="184" width="88" height="48" class="box"/>
+<text x="246.0" y="213.0" text-anchor="middle" class="b">control</text>
+<line x1="150" y1="232" x2="150" y2="271" class="ln" marker-end="url(#a)"/>
+<text x="162" y="256.0" text-anchor="start" class="s m">10,000 joint draws</text>
+<rect x="10" y="272" width="280" height="48" class="hl"/>
+<text x="150.0" y="293.0" text-anchor="middle" class="b on">Lift over control</text>
+<text x="150.0" y="310.0" text-anchor="middle" class="s on">arm draw ÷ control draw</text>
+<line x1="150" y1="320" x2="150" y2="359" class="ln" marker-end="url(#a)"/>
+<text x="162" y="344.0" text-anchor="start" class="s m">softmax; tightens with days of data</text>
+<rect x="10" y="360" width="280" height="48" class="box"/>
+<text x="150.0" y="389.0" text-anchor="middle" class="b">Shares</text>
+<line x1="150" y1="408" x2="150" y2="447" class="ln" marker-end="url(#a)"/>
+<text x="162" y="432.0" text-anchor="start" class="s m">new arm 15%, minimum share, rescale</text>
+<rect x="10" y="448" width="280" height="48" class="box"/>
+<text x="150.0" y="469.0" text-anchor="middle" class="b">Customer split</text>
+<text x="150.0" y="486.0" text-anchor="middle" class="s m">treatment cut into blocks; control held back</text>
+</svg>

@@ -41,7 +41,7 @@ The allocator is Thompson sampling with Beta posteriors, run as a scheduled batc
 6. **Assignment.** Treatment customers are shuffled and cut into blocks by share. Control customers
    stay in control.
 
-![Allocation flow: reward table, discounted Beta posteriors, sampled ratios, softmax shares, floors, customer split]({{ "/diagrams/bandit-flow.svg" | relative_url }})
+[![Allocation flow: reward table, discounted Beta posteriors, sampled ratios, softmax shares, floors, customer split]({{ "/diagrams/bandit-flow.svg" | relative_url }})]({{ "/diagrams/bandit-flow.svg" | relative_url }})
 
 ## How I knew it worked
 
