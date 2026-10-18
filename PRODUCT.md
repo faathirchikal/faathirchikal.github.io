@@ -8,11 +8,11 @@ web
 
 ## Stack
 
-Jekyll with no theme, built by GitHub Pages on push. No CI, no node, no JavaScript. One layout (`_layouts/page.html`) and one CSS file (`assets/site.css`).
+See `CLAUDE.md` § Site for the stack, pages and file layout.
 
 ## Users
 
-A hiring manager for a Senior/Lead applied data scientist role in optimisation and decision science, reading for about two minutes. A recruiter skims the top lines of each page.
+Hiring managers and recruiters for Senior/Lead applied data scientist roles; how they read is in `CLAUDE.md` § Reader checklist.
 
 ## Product Purpose
 
@@ -20,21 +20,19 @@ The public job-hunt portfolio of Faathir Chikal Asyuraa. Success is an interview
 
 ## Positioning
 
-Applied data scientist in optimisation and decision science: frame the problem, pick the method, prove it against an answer key.
+See `CLAUDE.md` § Positioning.
 
 ## Capabilities and Constraints
 
-- Pages: home (`/`), About (`/about/`), six case studies (`/work/<slug>/`), one essay (`/essay/`), CV PDF (`/cv.pdf`). Demos are linked once their GitHub Pages sites are live.
-- Disclosure: employer and role only, no internals. No real business figures, no real screenshots.
-- Every project shows its status in plain words near the top.
-- English only.
+- Disclosure and impact rules: see `CLAUDE.md` § Rules that never bend.
+- Reading and language rules: see `CLAUDE.md` § Reader checklist and § Rules that never bend.
 
 ## Evidence on Hand
 
 - Case studies in `_work/`, essay in `essay.md`, CV at `cv.pdf`.
-- Paper: F. C. Asyuraa et al., J. Phys.: Conf. Ser. 1722 012096 (2021).
+- Paper: citation in `CLAUDE.md` § Positioning.
 - Thesis repo: github.com/faathirchikal/marl-tsc-jakarta-corridor.
-- Inline SVG line drawings per project (synthetic content only). No testimonials, no confirmed Kalbe results; none may be invented.
+- Inline SVG line drawings per project (synthetic content only). No testimonials; none may be invented.
 
 ## Product Principles
 
