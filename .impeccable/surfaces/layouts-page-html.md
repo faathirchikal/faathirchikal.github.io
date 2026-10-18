@@ -2,23 +2,26 @@
 version: 1
 slug: "layouts-page-html"
 primary_target: "_layouts/page.html"
-related_targets: ["index.md","assets/site.css"]
+related_targets: ["index.md","assets/site.css","about.md"]
 ---
 
-Scope: whole site (home index, five case studies, essay). Mode: read.
-Audience: hiring manager, two-minute read; recruiter skims the top lines.
-Unresolved: diagrams land in Step 2; demos section added when the first demo ships.
+Scope: whole site (home, About, six case studies, essay). Mode: read.
+Audience: hiring manager, two-minute read; recruiter skims the top lines and the At-a-glance table.
+Job: show a lead who ships decision tools and measures them; every project's honest status visible.
+Constraints: Jekyll, no theme, no JavaScript, one layout + one CSS file; inline SVG illustrations via _includes/illo so colours follow tokens; no internal names.
+Direction pinned by the owner in a grilling session (no concept roll). Build path: code-led (no image generation).
+Illustration style approved by the owner after seeing the tracer sample: "Agree on the project illustration." Unresolved: demo pages return 404 until GitHub Pages is enabled on the three demo repos (owner to approve).
 
 ## Direction contract
 
-THESIS: The site is set like a printed rail timetable: operations research's own document. It refuses the hero-plus-project-cards portfolio.
+THESIS: The site reads as an operations sheet for one person's work: a dated swimlane of what shipped, what was trialled and what is being built, with every project drawn as its mechanism. It refuses the hero-plus-skill-bars portfolio and the loud single-colour poster band.
 
-OWN-WORLD: Departure-poster yellow (#f6c800) owns the full-width masthead band; near-black ink, warm white ground, one signal red for focus and link hover only. Barlow Semi Condensed for the frame (masthead, column heads, status), Barlow for reading. Hairline column rules, tabular figures, no cards, no shadows.
+OWN-WORLD: Warm neutral paper and graphite in dark; soft charcoal ink; one muted deep teal for links, the current nav item and the accent stroke in every drawing. Status in desaturated chips: sage filled for live or ran, ochre-grey half for trial, outline for building. Barlow Semi Condensed frames, Barlow reads. Line drawings at one stroke weight, rounded joins, 2 inks plus teal. Hairline rules, no shadows, small 6px radius on chips and cards only.
 
-STORY: The reader sees who this is and what he works on, scans five projects with their honest status, opens one, reads problem to status, and finds the CV.
+STORY: The reader sees who this is and the three things he does, scans five years in one timeline, follows the flagship planner story, opens a case study, jumps to How it's built, moves to the next case, finds the CV.
 
-FIRST VIEWPORT: Yellow band with name large and headline beneath. Below, the work index as a departure table: a narrow left column holds each status in bold condensed caps where a timetable puts the departure time; the right column holds the title link and one-line summary, rows separated by hairlines under a column-head rule. Case-study pages: yellow band reduced to a running head; title, then a facts row with status set like a service notice; calm reading column at ~68ch.
+FIRST VIEWPORT: Sticky bar (name left; Work, More work, Essay, Demos, About; CV and LinkedIn right). Name large, positioning line, three pillar chips, CV, LinkedIn and About buttons; beside it on desktop a 2×2 mosaic of four case-study line drawings, each linking to its page. Directly below, the swimlane timeline spanning the column width.
 
-FORM: printed timetable, position 3 on my ordered list; seed key 96aeb19a.
+FORM: operations sheet with schematic line drawings, owner-pinned, position 1; seed key: none (pinned direction, no roll). Owner's pinning words in the grilling session: palette "go for teal"; illustrations "Agree with the proposal" (SVG schematics, one style, thumbnail plus hero); timeline and visual home "Agree with the direction"; About page "About page is nice".
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

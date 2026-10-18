@@ -1,0 +1,62 @@
+{%- assign base = 24241 -%}{%- comment -%} Jan 2020, in months since year 0 {%- endcomment -%}
+{%- assign px = 12 -%}{%- assign x0 = 118 -%}
+{%- assign ny = site.time | date: "%Y" | times: 12 -%}{%- assign nm = site.time | date: "%m" | plus: 0 -%}
+{%- assign nowi = ny | plus: nm | minus: base -%}
+{%- assign nowx = nowi | times: px | plus: x0 -%}
+{%- assign labx = nowx | plus: 16 -%}
+{%- assign rowh = 32 -%}{%- assign striph = 34 -%}{%- assign gap = 16 -%}
+{%- assign total = 40 -%}
+{%- for lane in site.data.timeline.lanes -%}{%- assign total = lane.rows | times: rowh | plus: striph | plus: gap | plus: total -%}{%- endfor -%}
+<div class="tl">
+<svg viewBox="0 0 1400 {{ total }}" role="img" aria-labelledby="tl-t">
+<title id="tl-t">Work timeline from 2020 to today, by employer and study, with each project drawn by status.</title>
+{%- for yr in (2020..2026) -%}
+  {%- assign gx = yr | times: 12 | plus: 1 | minus: base | times: px | plus: x0 %}
+  <line x1="{{ gx }}" y1="26" x2="{{ gx }}" y2="{{ total }}" class="grid"/>
+  <text x="{{ gx | plus: 5 }}" y="18" class="yr">{{ yr }}</text>
+{%- endfor %}
+  <line x1="{{ nowx }}" y1="26" x2="{{ nowx }}" y2="{{ total }}" class="now"/>
+  <text x="{{ nowx }}" y="18" text-anchor="middle" class="now-l">now</text>
+{%- assign top = 40 -%}
+{%- for lane in site.data.timeline.lanes %}
+  <text x="0" y="{{ top | plus: 19 }}" class="lane-l">{{ lane.label }}</text>
+  {%- assign laneh = lane.rows | times: rowh | plus: striph %}
+  {%- for r in site.data.timeline.roles -%}{%- if r.lane == lane.id -%}
+    {%- assign si = r.start | slice: 0, 4 | times: 12 -%}{%- assign sm = r.start | slice: 5, 2 | plus: 0 -%}
+    {%- assign xs = si | plus: sm | minus: base | times: px | plus: x0 -%}{%- if xs < x0 -%}{%- assign xs = x0 -%}{%- endif -%}
+    {%- if r.end == "" -%}{%- assign xe = nowx -%}{%- else -%}
+      {%- assign ei = r.end | slice: 0, 4 | times: 12 -%}{%- assign em = r.end | slice: 5, 2 | plus: 0 -%}
+      {%- assign xe = ei | plus: em | minus: base | times: px | plus: x0 -%}
+      {%- if xe > nowx -%}{%- assign xe = nowx -%}{%- endif -%}
+    {%- endif -%}
+    {%- assign w = xe | minus: xs | minus: 2 %}
+  <rect x="{{ xs }}" y="{{ top }}" width="{{ w }}" height="{{ laneh }}" rx="4" class="role"/>
+  <text x="{{ xs | plus: 8 }}" y="{{ top | plus: 19 }}" class="role-l">{{ r.label }}</text>
+  {%- endif -%}{%- endfor -%}
+  {%- for p in site.data.timeline.projects -%}{%- if p.lane == lane.id -%}
+    {%- assign si = p.start | slice: 0, 4 | times: 12 -%}{%- assign sm = p.start | slice: 5, 2 | plus: 0 -%}
+    {%- assign xs = si | plus: sm | minus: base | times: px | plus: x0 -%}{%- if xs < x0 -%}{%- assign xs = x0 -%}{%- endif -%}
+    {%- if p.end == "" -%}{%- assign xe = nowx -%}{%- assign ongoing = true -%}{%- else -%}
+      {%- assign ei = p.end | slice: 0, 4 | times: 12 -%}{%- assign em = p.end | slice: 5, 2 | plus: 0 -%}
+      {%- assign xe = ei | plus: em | minus: base | times: px | plus: x0 | plus: px -%}{%- assign ongoing = false -%}
+    {%- endif -%}
+    {%- assign w = xe | minus: xs -%}{%- if w < 8 -%}{%- assign w = 8 -%}{%- endif -%}
+    {%- assign ry = p.row | times: rowh | plus: striph | plus: top -%}
+    {%- capture href -%}{%- if p.link contains "://" -%}{{ p.link }}{%- else -%}{{ p.link | relative_url }}{%- endif -%}{%- endcapture %}
+  {% if p.link %}<a href="{{ href }}">{% endif %}<g><title>{{ p.title }}: {{ p.start }} to {% if ongoing %}now{% else %}{{ p.end }}{% endif %}</title>
+    <rect x="{{ xs }}" y="{{ ry | plus: 16 }}" width="{{ w }}" height="10" rx="5" class="p {{ p.status }}"/>
+    {%- if ongoing %}
+    <text x="{{ labx }}" y="{{ ry | plus: 25 }}" class="p-l">{{ p.title }}</text>
+    {%- else %}
+    <text x="{% if p.anchor == "end" %}{{ xe }}{% else %}{{ xs }}{% endif %}" y="{{ ry | plus: 12 }}"{% if p.anchor == "end" %} text-anchor="end"{% endif %} class="p-l">{{ p.title }}</text>
+    {%- endif %}</g>{% if p.link %}</a>{% endif %}
+  {%- endif -%}{%- endfor -%}
+  {%- assign top = top | plus: laneh | plus: gap -%}
+{%- endfor %}
+</svg>
+</div>
+<ul class="legend">
+  <li><span class="chip live">Live or ran</span></li>
+  <li><span class="chip trial">Trial</span></li>
+  <li><span class="chip building">Building</span></li>
+</ul>

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 320 180" role="img" aria-label="A depot sends one route through three hospitals while the product's activity decays along the way.">
+  <rect x="14" y="70" width="44" height="40" rx="4" class="il-fill"/>
+  <path d="M14 110V82l11-8v8l11-8v8l11-8v36z" class="il"/>
+  <path d="M50 74v-16h6v20" class="il"/>
+  <path d="M58 92C96 92 102 40 140 40S190 66 214 66 250 128 210 140 120 150 58 104" class="il-acc"/>
+  <path d="M244 26v52h66" class="il-soft"/>
+  <path d="M248 30C262 54 278 66 306 72" class="il"/>
+  <circle cx="262" cy="49" r="3.5" class="il-dot-acc"/><circle cx="281" cy="63" r="3.5" class="il-dot-acc"/><circle cx="300" cy="70" r="3.5" class="il-dot-acc"/>
+  <path d="M131 51V33h24v18z" class="il-ground"/><path d="M128 51h30" class="il"/><path d="M143 36v9M138.5 40.5h9" class="il-acc"/><path d="M135 51v-4h4v4M147 51v-4h4v4" class="il-soft"/><path d="M135 33l8-6 8 6" class="il"/><path d="M203 78V60h24v18z" class="il-ground"/><path d="M200 78h30" class="il"/><path d="M215 63v9M210.5 67.5h9" class="il-acc"/><path d="M207 78v-4h4v4M219 78v-4h4v4" class="il-soft"/><path d="M207 60l8-6 8 6" class="il"/><path d="M177 151V133h24v18z" class="il-ground"/><path d="M174 151h30" class="il"/><path d="M189 136v9M184.5 140.5h9" class="il-acc"/><path d="M181 151v-4h4v4M193 151v-4h4v4" class="il-soft"/><path d="M181 133l8-6 8 6" class="il"/>
+</svg>

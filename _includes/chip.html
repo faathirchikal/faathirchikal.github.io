@@ -1,0 +1,6 @@
+{%- assign s = include.status | downcase -%}
+{%- if s contains "live" or s contains "replaced" -%}{%- assign k = "live" -%}
+{%- elsif s contains "trial" -%}{%- assign k = "trial" -%}
+{%- elsif s contains "research" -%}{%- assign k = "research" -%}
+{%- else -%}{%- assign k = "building" -%}{%- endif -%}
+<span class="chip {{ k }}">{{ include.status }}</span>

@@ -1,0 +1,9 @@
+<svg viewBox="0 0 320 180" role="img" aria-label="A distribution centre fills three branches to the same days of cover, and a truck carries the stock.">
+  <path d="M16 120V72l30-20 30 20v48z" class="il"/><path d="M34 120V96h24v24" class="il"/>
+  <g class="il"><rect x="150" y="40" width="28" height="90" rx="4"/><rect x="200" y="40" width="28" height="90" rx="4"/><rect x="250" y="40" width="28" height="90" rx="4"/></g>
+  <rect x="152" y="96" width="24" height="32" rx="2" class="il-fill"/><rect x="202" y="70" width="24" height="58" rx="2" class="il-fill"/><rect x="252" y="110" width="24" height="18" rx="2" class="il-fill"/>
+  <path d="M140 80h148" class="il-acc il-dash"/>
+  <text x="296" y="84" class="il-t-acc">level</text>
+  <path d="M80 146C110 160 200 166 270 146" class="il-acc"/>
+  <rect x="96" y="134" width="30" height="18" rx="3" class="il-ground"/><circle cx="104" cy="156" r="4" class="il-ground"/><circle cx="120" cy="156" r="4" class="il-ground"/>
+</svg>

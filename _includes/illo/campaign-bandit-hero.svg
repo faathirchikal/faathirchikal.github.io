@@ -1,0 +1,21 @@
+<svg viewBox="0 0 720 250" role="img" aria-label="Each day: discount old results, draw from each arm's posterior relative to its control, turn the draws into shares, and split customers by share while the control group stays held out.">
+  <title>Discounted posteriors, ratio to control, shares with a floor, then the customer split.</title>
+  <text x="20" y="26" class="il-t-acc">1  Discount old results</text><text x="20" y="44" class="il-t">each day weighs 0.99 per day of age</text>
+  <path d="M30 170h150" class="il-soft"/>
+  <g class="il-soft"><path d="M40 170v-14M56 170v-20M72 170v-26"/></g><path d="M88 170v-34M104 170v-44M120 170v-54M136 170v-66M152 170v-80M168 170v-94" class="il"/>
+  <path d="M200 120h26" class="il"/><path d="M218 114l8 6-8 6" class="il"/>
+  <text x="240" y="26" class="il-t-acc">2  Draw, relative to control</text><text x="240" y="44" class="il-t">Thompson sampling on Beta posteriors</text>
+  <path d="M244 170h200" class="il-soft"/>
+  <path d="M250 170C270 170 280 110 300 110S330 170 350 170" class="il-soft il-dash"/>
+  <path d="M290 170C312 170 324 90 344 90S376 170 396 170" class="il"/>
+  <path d="M330 170C354 170 370 64 386 64S414 170 438 170" class="il-acc"/>
+  <text x="250" y="190" class="il-t">control</text><text x="400" y="190" class="il-t-acc">best arm</text>
+  <path d="M460 120h26" class="il"/><path d="M478 114l8 6-8 6" class="il"/>
+  <text x="500" y="26" class="il-t-acc">3  Shares, then the split</text><text x="500" y="44" class="il-t">explore early, commit later, keep a floor</text>
+  <g class="il-soft"><rect x="504" y="64" width="190" height="20" rx="4"/><rect x="504" y="94" width="190" height="20" rx="4"/><rect x="504" y="124" width="190" height="20" rx="4"/></g>
+  <rect x="504" y="64" width="64" height="20" rx="4" class="il-fill"/><rect x="568" y="64" width="62" height="20" rx="0" class="il-fill"/>
+  <rect x="504" y="94" width="40" height="20" rx="4" class="il-fill"/><rect x="544" y="94" width="40" height="20" class="il-fill"/><rect x="584" y="94" width="110" height="20" rx="4" class="il-acc"/>
+  <rect x="504" y="124" width="22" height="20" rx="4" class="il-fill"/><rect x="526" y="124" width="22" height="20" class="il-fill"/><rect x="548" y="124" width="146" height="20" rx="4" class="il-acc"/>
+  <text x="698" y="78" class="il-t">day 1</text><text x="698" y="138" class="il-t">later</text>
+  <rect x="504" y="160" width="190" height="20" rx="4" class="il-soft il-dash"/><text x="599" y="174" text-anchor="middle" class="il-t">control group stays held out</text>
+</svg>

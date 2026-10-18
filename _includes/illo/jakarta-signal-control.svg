@@ -1,0 +1,10 @@
+<svg viewBox="0 0 320 180" role="img" aria-label="A signalised four-way intersection with zebra crossings, traffic lights, and motorcycles filling the gaps between cars.">
+  <path d="M10 66H118a10 10 0 0 0 10-10V8M192 8v48a10 10 0 0 0 10 10h108M10 114H118a10 10 0 0 1 10 10v48M192 172v-48a10 10 0 0 1 10-10h108" class="il"/>
+  <path d="M10 90h96M214 90h96M160 8v40M160 132v40" class="il-soft il-dash"/>
+  <g class="il-soft"><path d="M110 72v12M110 96v12M210 72v12M210 96v12M134 58h12M174 58h12M134 122h12M174 122h12"/></g>
+  <path d="M104 72v36M216 72v36M134 60h52M134 120h52" class="il-soft"/>
+  <rect x="26" y="96" width="30" height="12" rx="4" class="il-ground"/><rect x="238" y="72" width="30" height="12" rx="4" class="il-ground"/><rect x="166" y="138" width="12" height="26" rx="4" class="il-ground"/>
+  <g class="il-dot-acc"><circle cx="66" cy="100" r="3.5"/><circle cx="76" cy="106" r="3.5"/><circle cx="84" cy="97" r="3.5"/><circle cx="92" cy="104" r="3.5"/><circle cx="62" cy="108" r="3.5"/><circle cx="226" cy="78" r="3.5"/><circle cx="280" cy="80" r="3.5"/><circle cx="290" cy="74" r="3.5"/></g>
+  <rect x="96" y="26" width="14" height="32" rx="4" class="il-ground"/><circle cx="103" cy="35" r="3" class="il-dot"/><circle cx="103" cy="49" r="3.5" class="il-dot-acc"/>
+  <rect x="210" y="122" width="14" height="32" rx="4" class="il-ground"/><circle cx="217" cy="131" r="3.5" class="il-dot-acc"/><circle cx="217" cy="145" r="3" class="il-dot"/>
+</svg>

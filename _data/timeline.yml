@@ -1,0 +1,35 @@
+# Months are YYYY-MM. A blank end means ongoing. status: live (live or ran), trial, building.
+# row: the project's line inside its lane; at most one ongoing project per row.
+lanes:
+  - id: study
+    label: Study
+    rows: 1
+  - id: blibli
+    label: Blibli.com
+    rows: 3
+  - id: kalbe
+    label: Kalbe Farma
+    rows: 7
+roles:
+  - {lane: study, label: "BSc Mathematics", start: "2016-09", end: "2020-08"}
+  - {lane: study, label: "Master of Data Science, Monash", start: "2024-10", end: "2026-11"}
+  - {lane: blibli, label: "Junior Data Analytics Officer", start: "2021-03", end: "2022-12"}
+  - {lane: blibli, label: "Associate DS", start: "2023-01", end: "2023-07"}
+  - {lane: kalbe, label: "Data Scientist", start: "2023-08", end: "2025-06"}
+  - {lane: kalbe, label: "Senior Supervisor", start: "2025-07", end: ""}
+projects:
+  - {lane: study, row: 0, title: "Bandit paper (published)", status: live, start: "2020-01", end: "2021-01", link: "https://doi.org/10.1088/1742-6596/1722/1/012096"}
+  - {lane: study, row: 0, title: "Signal-control thesis", anchor: end, status: live, start: "2026-01", end: "2026-09", link: /work/jakarta-signal-control/}
+  - {lane: blibli, row: 2, title: "Sales reporting, forecasting, ad hoc analysis", status: live, start: "2021-03", end: "2022-12"}
+  - {lane: blibli, row: 0, title: "Similar-product detection", anchor: end, status: live, start: "2022-07", end: "2022-12"}
+  - {lane: blibli, row: 1, title: "Catalogue product grouping", status: live, start: "2023-01", end: "2023-07"}
+  - {lane: kalbe, row: 0, title: "Campaign bandit", status: live, start: "2024-01", end: "2026-03", link: /work/campaign-bandit/}
+  - {lane: kalbe, row: 0, title: "Loyalty recommender", status: live, start: "2026-09", end: "", link: /work/loyalty-recommender/}
+  - {lane: kalbe, row: 3, title: "B2B sales forecasting", status: live, start: "2023-08", end: "2023-12"}
+  - {lane: kalbe, row: 1, title: "News monitoring", status: live, start: "2024-01", end: ""}
+  - {lane: kalbe, row: 6, title: "Warehouse picking trial", status: trial, start: "2024-07", end: "2024-12"}
+  - {lane: kalbe, row: 2, title: "Dispatch planner", status: building, start: "2025-04", end: "", link: /work/tracer-dispatch-planner/}
+  - {lane: kalbe, row: 3, title: "LLM agent platform", status: building, start: "2026-01", end: "", link: /work/llm-agent-platform/}
+  - {lane: kalbe, row: 4, title: "Replenishment planner", status: building, start: "2026-04", end: "", link: /work/replenishment-planner/}
+  - {lane: kalbe, row: 5, title: "Master data: product, outlet, customer", status: building, start: "2026-04", end: ""}
+  - {lane: kalbe, row: 6, title: "Customer data platform", status: building, start: "2026-10", end: ""}

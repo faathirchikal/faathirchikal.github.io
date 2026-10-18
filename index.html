@@ -1,0 +1,121 @@
+---
+title: Faathir Chikal Asyuraa
+---
+<div class="wide">
+<section class="intro">
+  <div>
+    <h1>Faathir Chikal Asyuraa</h1>
+    <p class="pos">Applied data scientist and acting data science lead at Kalbe Farma. I build optimisation and machine learning tools for teams across the business, from the model to the app people use.</p>
+    <ul class="pillars">
+      <li>Lead a data team</li>
+      <li>Build decision engines</li>
+      <li>Ship end-to-end products</li>
+    </ul>
+    <div class="actions">
+      <a class="btn solid" href="{{ "/cv.pdf" | relative_url }}">Download CV</a>
+      <a class="btn" href="{{ site.linkedin }}">LinkedIn</a>
+      <a class="btn" href="{{ "/about/" | relative_url }}">About me</a>
+    </div>
+  </div>
+  <div class="mosaic" aria-label="Four of the case studies">
+    <a href="{{ "/work/tracer-dispatch-planner/" | relative_url }}">{% include illo/tracer-dispatch-planner.svg %}<span>Dispatch planner</span></a>
+    <a href="{{ "/work/loyalty-recommender/" | relative_url }}">{% include illo/loyalty-recommender.svg %}<span>Recommender</span></a>
+    <a href="{{ "/work/replenishment-planner/" | relative_url }}">{% include illo/replenishment-planner.svg %}<span>Replenishment planner</span></a>
+    <a href="{{ "/work/llm-agent-platform/" | relative_url }}">{% include illo/llm-agent-platform.svg %}<span>LLM agent platform</span></a>
+  </div>
+</section>
+
+<section class="sect" id="timeline">
+  <h2>What I've worked on, and when</h2>
+  <p class="lede">Each bar is a project, placed by date. Linked ones open a case study; <a href="#more">More work</a> describes the rest.</p>
+  {% include timeline.html %}
+</section>
+
+<section class="sect" id="flagship">
+  <h2>One project, start to finish</h2>
+  <p class="lede">How the dispatch planner went from a morning spreadsheet to a tested plan.</p>
+  <div class="story">
+    <div>
+      <h3>Problem<small>a product that decays</small></h3>
+      <p>A radiopharmaceutical used in hospital imaging loses half its activity in under two hours. Each morning, planners decided in a spreadsheet which vehicle serves which hospital, when it leaves, and how much to produce.</p>
+    </div>
+    <div>
+      <h3>Framing<small>one number connects it all</small></h3>
+      <p>Routes, fleet size and dose all hang on the departure time. Once the departure is fixed, decay is a formula, and one hard problem becomes many ordinary routing problems.</p>
+    </div>
+    <div>
+      <h3>Method<small>sweep, route, back-solve</small></h3>
+      <div class="swipe">
+        <p>The planner solves a routing problem (OR-Tools) for every departure time and fleet size, keeps the plans under the production ceiling, and back-solves each stop's dose from the chosen departure.</p>
+        {% include illo/tracer-dispatch-planner-hero.svg %}
+      </div>
+    </div>
+    <div>
+      <h3>How I knew<small>tests, then the manufacturer's numbers</small></h3>
+      <div>
+        <p>Physics tests on the decay maths, a pinned reference day, and production figures that reproduce the manufacturer's workbook. It is now in acceptance testing with a company within the Kalbe group.</p>
+        <p class="links"><a class="btn solid" href="{{ "/work/tracer-dispatch-planner/" | relative_url }}">Read the case study</a> <a class="btn" href="https://faathirchikal.github.io/decay-routing-demo/">Try the routing demo</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="work">
+  <h2>Case studies</h2>
+  <p class="lede">Six projects in depth: the problem, the method, how it's built, and how I knew it worked.</p>
+  <div class="cards">
+  {%- assign work = site.work | sort: "order" %}
+  {%- for w in work %}
+    <a class="card" href="{{ w.url | relative_url }}">
+      <div class="art">{% include illo/{{ w.slug }}.svg %}</div>
+      <div class="body">
+        <p class="q">{{ w.question }}</p>
+        <p class="t">{{ w.title }}</p>
+        <div>{% include chip.html status=w.status %}</div>
+        <div class="tags">{% for t in w.stack limit: 4 %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+      </div>
+    </a>
+  {%- endfor %}
+  </div>
+</section>
+
+<section class="sect" id="more">
+  <h2>More work</h2>
+  <p class="lede">The other projects on the timeline, plus smaller ones I led or built, grouped by skill.</p>
+  {%- assign groups = site.data.more_work | group_by: "skill" %}
+  <div class="groups">
+  {%- for g in groups %}
+    <div class="group">
+      <h3>{{ g.name }}</h3>
+      {%- for m in g.items %}
+      <div class="item">
+        {% include illo/{{ m.illo }}.svg %}
+        <div>
+          <p class="t">{% if m.link %}<a href="{{ m.link | relative_url }}">{{ m.title }}</a>{% else %}{{ m.title }}{% endif %}</p>
+          <p>{{ m.line }}</p>
+          <p class="st">{{ m.status }}</p>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  {%- endfor %}
+  </div>
+</section>
+
+<section class="sect" id="essay">
+  <h2>Essay</h2>
+  <ul class="links-list">
+    <li><a href="{{ "/essay/" | relative_url }}">Knowing whether it works</a><p>Two projects where I set up the measurement well and three where I did not, and the rule I took from them.</p></li>
+  </ul>
+</section>
+
+<section class="sect" id="demos">
+  <h2>Demos</h2>
+  <p class="lede">Rebuilt on synthetic data, running in the browser.</p>
+  <ul class="links-list">
+    <li><a href="https://faathirchikal.github.io/campaign-bandit-simulator/">Campaign bandit simulator</a><p>Four allocation policies on simulated message arms, including a best arm that swaps halfway.</p></li>
+    <li><a href="https://faathirchikal.github.io/decay-routing-demo/">Decay-aware routing</a><p>Departure time swept against fleet size for a product that decays on the road, with an OR-Tools solve in each cell.</p></li>
+    <li><a href="https://faathirchikal.github.io/experiment-design-lab/">Experiment design lab</a><p>What daily peeking does to an A/B test's error rate, and what CUPED and a sample ratio check buy.</p></li>
+  </ul>
+</section>
+</div>

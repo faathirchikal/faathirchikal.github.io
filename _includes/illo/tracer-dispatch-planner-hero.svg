@@ -1,0 +1,38 @@
+<svg viewBox="0 0 720 300" role="img" aria-label="Three steps. Sweep every departure time against every fleet size. Route each cell with OR-Tools. Fix the departure of the chosen plan and back-solve each stop's dose through the decay curve.">
+  <title>Sweep departure time against fleet size, route each cell, then back-solve each dose from the chosen departure.</title>
+  <text x="20" y="26" class="il-t-acc">1  Sweep</text>
+  <text x="20" y="44" class="il-t">departure time × fleet size</text>
+  <g class="il-soft">
+    <rect x="20" y="62" width="30" height="26" rx="3"/><rect x="54" y="62" width="30" height="26" rx="3"/><rect x="88" y="62" width="30" height="26" rx="3"/><rect x="122" y="62" width="30" height="26" rx="3"/><rect x="156" y="62" width="30" height="26" rx="3"/>
+    <rect x="20" y="92" width="30" height="26" rx="3"/><rect x="54" y="92" width="30" height="26" rx="3"/><rect x="88" y="92" width="30" height="26" rx="3"/><rect x="122" y="92" width="30" height="26" rx="3"/><rect x="156" y="92" width="30" height="26" rx="3"/>
+    <rect x="20" y="122" width="30" height="26" rx="3"/><rect x="88" y="122" width="30" height="26" rx="3"/><rect x="122" y="122" width="30" height="26" rx="3"/><rect x="156" y="122" width="30" height="26" rx="3"/>
+    <rect x="20" y="152" width="30" height="26" rx="3"/><rect x="54" y="152" width="30" height="26" rx="3"/><rect x="88" y="152" width="30" height="26" rx="3"/><rect x="122" y="152" width="30" height="26" rx="3"/><rect x="156" y="152" width="30" height="26" rx="3"/>
+  </g>
+  <path d="M28 69l14 12M42 69l-14 12M62 69l14 12M76 69l-14 12M28 99l14 12M42 99l-14 12" class="il-soft"/>
+  <rect x="54" y="122" width="30" height="26" rx="3" class="il-fill"/>
+  <rect x="54" y="122" width="30" height="26" rx="3" class="il-acc"/>
+  <path d="M20 196h166" class="il-soft"/><path d="M178 191l8 5-8 5" class="il-soft"/>
+  <text x="20" y="214" class="il-t">earlier → later departure</text>
+  <text x="20" y="246" class="il-t">× breaks the production ceiling</text>
+  <path d="M206 135h40" class="il"/><path d="M238 129l8 6-8 6" class="il"/>
+
+  <text x="266" y="26" class="il-t-acc">2  Route each cell</text>
+  <text x="266" y="44" class="il-t">OR-Tools, time windows</text>
+  <rect x="270" y="122" width="34" height="30" rx="4" class="il-fill"/>
+  <path d="M270 152v-20l9-6v6l9-6v6l9-6v26z" class="il"/>
+  <path d="M304 140C330 140 336 84 368 84S410 102 430 108 446 170 412 186 330 196 304 148" class="il-acc"/>
+  <path d="M357 95V77h24v18z" class="il-ground"/><path d="M354 95h30" class="il"/><path d="M369 80v9M364.5 84.5h9" class="il-acc"/><path d="M361 95v-4h4v4M373 95v-4h4v4" class="il-soft"/><path d="M361 77l8-6 8 6" class="il"/><path d="M423 121V103h24v18z" class="il-ground"/><path d="M420 121h30" class="il"/><path d="M435 106v9M430.5 110.5h9" class="il-acc"/><path d="M427 121v-4h4v4M439 121v-4h4v4" class="il-soft"/><path d="M427 103l8-6 8 6" class="il"/><path d="M377 201V183h24v18z" class="il-ground"/><path d="M374 201h30" class="il"/><path d="M389 186v9M384.5 190.5h9" class="il-acc"/><path d="M381 201v-4h4v4M393 201v-4h4v4" class="il-soft"/><path d="M381 183l8-6 8 6" class="il"/>
+  <circle cx="436" cy="70" r="11" class="il-soft"/><path d="M436 63v7l5 3" class="il-soft"/>
+  <text x="266" y="246" class="il-t">late minutes cost steeply</text>
+  <path d="M468 135h40" class="il"/><path d="M500 129l8 6-8 6" class="il"/>
+
+  <text x="526" y="26" class="il-t-acc">3  Back-solve the dose</text>
+  <text x="526" y="44" class="il-t">from the fixed departure</text>
+  <path d="M530 60v150h170" class="il-soft"/>
+  <path d="M534 72C566 126 610 160 696 184" class="il"/>
+  <path d="M530 72h4" class="il-acc"/>
+  <circle cx="576" cy="125" r="4.5" class="il-dot-acc"/><circle cx="624" cy="158" r="4.5" class="il-dot-acc"/><circle cx="676" cy="179" r="4.5" class="il-dot-acc"/>
+  <path d="M676 172V78" class="il-acc il-dash"/><path d="M670 86l6-8 6 8" class="il-acc"/>
+  <text x="530" y="230" class="il-t">departure</text><text x="700" y="230" text-anchor="end" class="il-t">time of use</text>
+  <text x="530" y="246" class="il-t">dose needed = request ÷ decay</text>
+</svg>

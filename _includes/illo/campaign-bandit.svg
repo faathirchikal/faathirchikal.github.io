@@ -1,0 +1,13 @@
+<svg viewBox="0 0 320 180" role="img" aria-label="Three message arms with uncertain conversion rates; sends shift toward the arm beating its control group.">
+  <path d="M14 110h150" class="il-soft"/>
+  <path d="M20 110C40 110 46 60 62 60S84 110 104 110" class="il-soft"/>
+  <path d="M40 110C60 110 70 80 84 80S104 110 124 110" class="il"/>
+  <path d="M70 110C92 110 104 34 116 34S140 110 160 110" class="il-acc"/>
+  <text x="14" y="134" class="il-t">conversion vs control</text>
+  <rect x="184" y="34" width="122" height="22" rx="4" class="il-soft"/>
+  <rect x="184" y="70" width="122" height="22" rx="4" class="il-soft"/>
+  <rect x="184" y="106" width="122" height="22" rx="4" class="il-soft"/>
+  <rect x="184" y="34" width="40" height="22" rx="4" class="il-fill"/><rect x="184" y="70" width="30" height="22" rx="4" class="il-fill"/><rect x="184" y="106" width="96" height="22" rx="4" class="il-fill"/><rect x="184" y="106" width="96" height="22" rx="4" class="il-acc"/>
+  <rect x="184" y="142" width="122" height="22" rx="4" class="il-soft il-dash"/>
+  <text x="245" y="157" text-anchor="middle" class="il-t">control group</text>
+</svg>

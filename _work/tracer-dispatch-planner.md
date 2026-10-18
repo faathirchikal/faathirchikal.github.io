@@ -1,86 +1,84 @@
 ---
 title: Dispatch planning for a product that decays on the road
 summary: A planner that routes a radiopharmaceutical with a half-life under two hours and sets each batch's dose.
-status: In client testing
-order: 2
+status: In acceptance testing
+question: When should each vehicle leave, and how much should be produced, for a product that decays on the road?
+stack: [Python, OR-Tools, FastAPI, SvelteKit, PostgreSQL, Docker]
+order: 3
 ---
-Kalbe Farma · acting Data Science Lead · lead builder, with a small team.
+Kalbe Farma · 2025 to now · lead builder, with a small team.
 
 ## Problem
 
-A manufacturer produces a short-lived radiopharmaceutical, used in hospital imaging, that loses half
-its activity in under two hours. It is made early each morning and driven to dozens of hospitals,
-some reached by a scheduled flight. Each hospital orders a dose for the time it will use it.
+A short-lived radiopharmaceutical, used in hospital imaging, loses half its activity in under two
+hours. It is made early each morning and delivered to dozens of hospitals, some by scheduled flight.
+Each hospital orders a dose for the time it will use it.
 
-Planners worked the day out in a spreadsheet: who rides on which vehicle, when each vehicle leaves,
-and how much activity to make so every dose is still enough when it arrives. Those questions depend on
-each other. A longer route means more decay, so more activity has to be produced, and production has
-a ceiling.
+Planners worked out the day in a spreadsheet: which vehicle serves which hospital, when it leaves,
+and how much to produce so every dose is still enough on arrival. These decisions depend on each
+other. A longer route means more decay, so more must be produced, and production has a ceiling.
 
 ## Constraints
 
-- **The dose is set at the time of use.** Every minute on the road raises the activity that must be
-  produced.
-- **There is one production batch per site per day,** with a fixed reserve for quality control
-  inside its ceiling.
-- **Vehicles cost money.** Each extra driver shortens routes and reduces the dose needed, so fleet
-  size is a cost decision.
-- **Some legs are flights,** with handling windows on both sides. A missed flight outranks every
-  other failure.
-- **Plans must reproduce.** A plan that changes when it is re-run cannot be signed off.
+- **The dose is set at the time of use,** so every minute on the road raises what must be produced.
+- **One production batch per site per day,** with a fixed quality-control reserve inside its ceiling.
+- **Vehicles cost money.** More vehicles shorten routes and lower the dose, so fleet size is a cost decision.
+- **Some legs are flights.** A missed flight outranks every other failure.
+- **Plans must reproduce.** A plan that changes on a re-run cannot be signed off.
 
 ## Approach
 
-**Framing.** Routing and dosing look like one joint problem, but they connect through a single
-number: the departure time that anchors the batch. Once the departure is fixed, decay is a closed
-formula. Activity at time t is the starting activity times one half raised to t over the half-life.
-That turns one hard problem into a sweep of easy ones.
+**Framing.** Routing and dosing connect through one number: the departure time. Once it is fixed,
+decay is a closed formula, so one hard joint problem becomes a sweep of ordinary ones.
 
-1. **Sweep.** For each candidate departure time and each fleet size, solve a vehicle routing problem
-   with time windows (OR-Tools). Late arrivals carry a steep penalty per minute, and each vehicle has
-   a stop cap.
-2. **Back-solve the dose.** For each stop, the activity to load is the requested dose at its time of
-   use, plus a safety buffer, divided by the decay factor for the elapsed time since departure.
-3. **Allocate vehicles.** A small dynamic program splits the fleet across sites and flight groups.
-   The ranking puts missed flights first, then late stops, then cost, then balance.
-4. **Recommend.** Among plans that fit under the production ceiling, prefer those within half a
-   percent of the cheapest, then the fewest late stops, then the fewest vehicles.
-5. **Hold departures.** After routing, each vehicle leaves as late as its tightest stop allows. The
-   dose is anchored to the planned departure, so a late truck can only raise the dose and never leaves
-   a hospital short.
+1. **Sweep.** For each departure time and fleet size, solve a vehicle routing problem with time
+   windows (OR-Tools), with a steep penalty per late minute.
+2. **Back-solve the dose.** Each stop's activity to load is its requested dose plus a safety buffer,
+   divided by the decay over the time since departure.
+3. **Allocate vehicles.** A small dynamic program splits the fleet across sites and flight groups,
+   ranking missed flights first, then late stops, then cost.
+4. **Recommend.** Among plans under the production ceiling, prefer those within half a percent of
+   the cheapest, then the fewest late stops, then the fewest vehicles.
+5. **Hold departures.** Each vehicle leaves as late as its tightest stop allows. Leaving early means
+   more decay on the road, so more activity has to be produced and more of it is wasted.
 
-[![Sweep over departure time and fleet size, each cell a routing solve, dose back-solved from the departure anchor]({{ "/diagrams/tracer-sweep.svg" | relative_url }})]({{ "/diagrams/tracer-sweep.svg" | relative_url }})
 
-**Refusing to guess.** A missing travel time is reported, never treated as zero. A partial solve is
-an error, never a shorter plan. A plan that has been reviewed is used exactly as approved and never
-re-solved, because a time-limited solver can return a different answer on a second run.
+**Refusing to guess.** A missing travel time or a partial solve stops the run with an error. An approved plan is never re-solved, because a time-limited solver can return a
+different answer on a second run.
 
 The [decay-aware routing demo](https://faathirchikal.github.io/decay-routing-demo/) rebuilds the sweep on an
-invented city, with four scenarios and tests for the decay physics.
+invented city.
+
+## How it's built
+
+| Layer | Tools |
+|---|---|
+| Inputs | Hospital orders, flight schedules, road travel times (open-source routing engine, optional Google Routes check) |
+| Engine | Python, OR-Tools (routing with time windows), a dynamic program for the fleet split |
+| Application | FastAPI back end, SvelteKit web app with maps, PDF and Excel reports |
+| Users | Logins with roles (admin, manager, staff), an approval step, cost fields hidden by role |
+| Data | PostgreSQL as the system of record |
+| Delivery | Docker, GitLab CI with tests, type checks and security scans |
+
+I swept departure time because once it is fixed, decay is a formula, and every cell becomes a
+standard routing problem that is fast to solve and easy to explain to planners.
 
 ## How I knew it worked
 
-- **Physics tests.** The decay formula round-trips, multi-leg journeys decay the same as one long
-  leg, and nothing jumps at hour boundaries. All decay maths lives in one module, and a test enforces
-  that.
-- **Exhaustive check.** The fleet allocation is checked against full enumeration on small cases.
-- **A pinned reference day.** Every output of one reference day is saved, so any change in
-  behaviour shows up as a difference someone has to accept.
-- **The client's own numbers.** The production worksheet and the delivery documents reproduce the
-  figures in the client's workbook.
+- **Physics tests.** The decay formula round-trips, and a multi-leg journey decays the same as one long leg.
+- **Exhaustive check.** The fleet allocation matches full enumeration on small cases.
+- **A pinned reference day.** Any change in behaviour shows up as a difference someone must accept.
+- **The manufacturer's own numbers.** The production figures reproduce the manufacturer's workbook.
 
-I also tested a feature and dropped it. Letting vehicles return for a second trip raised total
-activity on the only real case available, so it stays off.
+I also tested letting vehicles make a second trip. It raised total activity on the test case, so it stays off.
 
 ## What I'd change
 
-- **Compare the optimiser numerically with the workbook.** The production side is tied to the
-  client's figures, but the routing side is checked only against its own tests.
-- **Keep the design document in step with the code.** A sign-off removed one term from the decay
-  model, and the design document still describes it.
-- **Confirm the assumptions sooner.** The safety buffer, reload time and vehicle cost are still
-  waiting on client confirmation, and the recommendation depends on all three.
+- **Compare routing numerically with the workbook.** Production is tied to the manufacturer's figures;
+  routing is checked only against its own tests.
+- **Confirm cost assumptions earlier.** The recommendation depends on the safety buffer and vehicle
+  cost, so they should be agreed before the sweep runs.
 
 ## Status
 
-In client acceptance testing. The client is trialling it on a test system before switching over from the spreadsheet.
+In acceptance testing with a company within the Kalbe group, on a test system before switching over from the spreadsheet.

@@ -2,90 +2,81 @@
 title: A governed platform for data question agents
 summary: A platform where a team describes its tables in YAML and gets an LLM agent that answers data questions without ever seeing data it shouldn't.
 status: In development
-order: 4
+question: How can any team get a data agent that answers correctly and never shows rows a user may not see?
+stack: [Python, LangGraph, Gemini, Cube, BigQuery, FastAPI]
+order: 5
 ---
-Kalbe Farma · acting Data Science Lead · sole designer and builder.
+Kalbe Farma · 2026 to now · sole designer and builder.
 
 ## Problem
 
-Staff ask business questions in a company chat assistant, and a domain agent answers each one by
-querying the data warehouse. The first agent was built by hand: its own SQL builder, its own wiring
-of the access rules, and its own evaluation.
-
-Every new domain would repeat that work, and the access rules were already copied between repos
-with nothing keeping the copies identical. A mistake in one copy could let a user see rows their
-role does not allow.
-
-The goal is that a domain team describes its tables in a folder of YAML and gets a governed agent
-without writing a service.
+Staff ask business questions in the company's internal chat assistant, and a domain agent answers by querying
+the data warehouse. The first agent was built by hand, and each new domain would repeat that work,
+including the access rules. The goal: a domain team describes its tables in YAML and gets a governed
+agent without writing a service.
 
 ## Constraints
 
-- **Row-level access is the hard requirement.** A sales representative may see only their own
-  territory, and a wrong answer is better than a leaked one.
-- **Numbers must match the dashboards** that analysts already trust.
-- **Domain teams know their data, not LLM engineering.** What they write has to be declarative.
+- **Row-level access is non-negotiable.** A sales representative sees only their own territory, and
+  the agent refuses whenever access is in doubt.
+- **Numbers must match the dashboards** analysts already trust.
+- **Domain teams know their data and have no LLM engineering background,** so what they write must be declarative.
 - **One team's mistake must not break another team's agent.**
 
 ## Approach
 
-**What a domain team writes.** A domain file names the dataset and its access axes. Each view is
-one fact table with at most one join to a dimension, plus its metrics, filters and time key. A
-glossary, short rules and a set of verified questions with answers complete the folder.
+**What a team writes.** YAML naming its views (one fact table, at most one join), metrics, filters,
+a glossary, and a set of verified questions with answers.
 
-**The model never writes SQL.** It fills a JSON spec: view, metrics, grouping, filters, period and
-limit. Each field is an enumeration of what the domain declared. Validators refuse unknown members,
-stock metrics summed across months, and mixed units. Code then builds the SQL through a semantic
-layer (Cube), which maps business terms such as "net sales" to tables and formulas.
+**The model never writes SQL.** It fills a JSON spec (view, metrics, grouping, filters, period),
+where every field is an enumeration of what the domain declared. Validators refuse unknown members
+and invalid aggregations. Code builds the SQL through a semantic layer (Cube).
 
-**Access is applied by code, and any doubt means no data.** The routing service signs a short-lived token
-carrying the user's access rights for that domain, and the model never sees it. Those rights are applied in
-three places:
+**Access is enforced by code, outside the model.** The user's rights travel in a short-lived signed
+token the model never sees, and are checked at three independent layers: the semantic layer, a
+parse of the generated SQL, and a SQL guard. Any one refusing means no rows.
 
-1. The semantic layer adds them as filters and stops with an error if they are missing.
-2. The backend parses the generated SQL and requires a top-level condition for every restricted axis.
-3. A SQL guard accepts only a plain SELECT with declared joins and allowed aggregates.
+**Routing and isolation.** A routing agent only considers agents the user's roles can reach. Each
+domain runs in its own container, so a broken YAML file takes down one agent only.
 
-Any one of them refusing means no rows are returned.
 
-**Routing.** A routing agent narrows the agents to those the user's roles can reach, then picks one.
-A user with no access in a domain is refused before any model call.
+## How it's built
 
-**Isolation.** Each domain runs as its own process and container, so a broken YAML file takes down one
-agent only.
+| Layer | Tools |
+|---|---|
+| Domain definition | YAML: views, metrics, glossary, verified questions |
+| Agents | Python, FastAPI, LangGraph, Gemini models, a routing agent, one container per domain |
+| Query layer | Cube semantic layer over BigQuery, a SQL guard (sqlglot) |
+| Knowledge base | Product and outlet search with embeddings (Qdrant) |
+| Platform | Registry of agents, roles and grants in PostgreSQL, React admin console |
+| Delivery | Docker, GitLab CI, tracing with Langfuse |
 
-[![Request path: user, routing agent, domain agent, JSON spec, semantic layer with access filter, SQL guard, warehouse]({{ "/diagrams/agent-request-path.svg" | relative_url }})]({{ "/diagrams/agent-request-path.svg" | relative_url }})
+I kept SQL writing in code because a fixed spec can be validated field by field, and access rules
+can be enforced where the model cannot reach them.
 
 ## How I knew it worked
 
-Before building, I settled what "works" means. Analysts write an answer key: questions with the
-answers their dashboards give. Scoring uses no LLM judge:
+Before building, analysts write an answer key: questions with the answers their dashboards give.
+Scoring uses no LLM judge.
 
 | Outcome | Passes when |
 |---|---|
-| A figure | returned rows match within 0.5% relative tolerance |
+| A figure | returned rows match within 0.5% |
 | A ranking | leading rows match in order |
-| A question it should decline | the agent asks a clarifying question or declines |
+| A question it should decline | the agent declines or asks to clarify |
 | Any case | no row outside the user's access appears, in any run |
 
-Each case runs three times and the majority counts. About a third of cases are held out from tuning.
-Going live needs the match threshold on both halves, zero leaks, every decline correct, and
-cases spread across at least two different access levels.
-
-The same rule decides when the hand-built agent retires: the platform agent must score at or above
-it on the same set with zero leaks. A new model or framework faces the same test, so no
-technology change happens on impressions.
+Each case runs three times and the majority counts; about a third are held out from tuning. Going
+live needs the match threshold on both the tuning and held-out cases, and zero leaks. The same test decides when the
+hand-built agent retires and whether a new model is adopted.
 
 ## What I'd change
 
-- **Get the answer key signed earlier.** The scoring was ready before the analysts had
-  confirmed their answers, so the first comparison ran on a draft key. The gate is only as good as
-  the answers it checks against.
+- **Get the answer key signed before scoring starts,** so every comparison runs against final answers.
 - **Give the model names to ground on.** When a view held only product codes, the agent invented
   product names. A name lookup belongs in the view from the start.
-- **Set a response-time budget.** Accuracy has a bar to clear and speed has none yet.
 
 ## Status
 
-In development. The access controls, the engine and the routing agent are built and tested. Go-live waits
-on the analysts signing off the answer key.
+In development. Access controls, the engine and the routing agent are built and tested. Go-live
+waits on the analysts signing off the answer key.

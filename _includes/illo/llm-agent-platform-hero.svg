@@ -1,0 +1,25 @@
+<svg viewBox="0 0 720 250" role="img" aria-label="A question goes to a routing agent, then a domain agent that fills a JSON spec. Code builds the SQL through a semantic layer. Three checks apply the user's access rights before any row returns.">
+  <title>The model fills a spec, code builds the SQL, and three checks apply access before rows return.</title>
+  <path d="M20 96a12 12 0 0 1 12-12h50a12 12 0 0 1 12 12v18a12 12 0 0 1-12 12H48l-14 12v-12a12 12 0 0 1-14-12z" class="il"/>
+  <text x="57" y="111" text-anchor="middle" class="il-t-acc">?</text><text x="20" y="66" class="il-t">question</text>
+  <path d="M98 105h22" class="il"/><path d="M112 99l8 6-8 6" class="il"/>
+  <rect x="124" y="82" width="88" height="46" rx="6" class="il-ground"/><text x="168" y="102" text-anchor="middle" class="il-t">routing</text><text x="168" y="118" text-anchor="middle" class="il-t">agent</text>
+  <path d="M212 105h22" class="il"/><path d="M226 99l8 6-8 6" class="il"/>
+  <rect x="238" y="82" width="88" height="46" rx="6" class="il-fill"/><rect x="238" y="82" width="88" height="46" rx="6" class="il-acc"/><text x="282" y="102" text-anchor="middle" class="il-t-acc">domain</text><text x="282" y="118" text-anchor="middle" class="il-t-acc">agent (LLM)</text>
+  <path d="M326 105h22" class="il"/><path d="M340 99l8 6-8 6" class="il"/>
+  <rect x="352" y="76" width="64" height="58" rx="4" class="il-ground"/><path d="M362 92h44M362 104h32M362 116h40" class="il-soft"/><text x="384" y="66" text-anchor="middle" class="il-t">JSON spec</text>
+  <path d="M416 105h22" class="il"/><path d="M430 99l8 6-8 6" class="il"/>
+  <text x="440" y="66" class="il-t">code builds the SQL</text>
+  <g><rect x="442" y="82" width="54" height="46" rx="5" class="il-ground"/><rect x="504" y="82" width="54" height="46" rx="5" class="il-ground"/><rect x="566" y="82" width="54" height="46" rx="5" class="il-ground"/></g>
+  <path d="M496 105h8M558 105h8" class="il"/>
+  <text x="469" y="101" text-anchor="middle" class="il-t">semantic</text><text x="469" y="116" text-anchor="middle" class="il-t">layer</text>
+  <text x="531" y="101" text-anchor="middle" class="il-t">SQL</text><text x="531" y="116" text-anchor="middle" class="il-t">check</text>
+  <text x="593" y="101" text-anchor="middle" class="il-t">guard</text>
+  <g class="il-acc"><path d="M460 140l9 9 9-9M522 140l9 9 9-9M584 140l9 9 9-9"/></g>
+  <path d="M620 105h22" class="il"/><path d="M634 99l8 6-8 6" class="il"/>
+  <rect x="646" y="80" width="56" height="50" rx="4" class="il-ground"/><path d="M646 96h56M646 113h56M665 80v50M684 80v50" class="il-soft"/>
+  <rect x="160" y="172" width="22" height="18" rx="3" class="il"/><path d="M165 172v-6a6 6 0 0 1 12 0v6" class="il"/>
+  <path d="M182 181H593V156" class="il-acc il-dash"/><path d="M469 181v-25M531 181v-25" class="il-acc il-dash"/>
+  <text x="196" y="208" class="il-t">the user's access rights, in a signed token the model never sees, apply at all three checks</text>
+  <text x="196" y="226" class="il-t">any one refusing returns no rows</text>
+</svg>

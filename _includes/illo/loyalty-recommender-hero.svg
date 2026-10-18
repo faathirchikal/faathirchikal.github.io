@@ -1,0 +1,18 @@
+<svg viewBox="0 0 720 260" role="img" aria-label="Three steps. Purchase history where recent buys count more. An item-item model that links products bought together. A six-item carousel after rules on brand variety and sensitive products.">
+  <title>Recent purchases weigh more, an item-item model ranks products bought together, and rules shape the six-item carousel.</title>
+  <text x="20" y="26" class="il-t-acc">1  Purchase history</text><text x="20" y="44" class="il-t">recent buys count more</text>
+  <path d="M24 170h180" class="il-soft"/><path d="M196 165l8 5-8 5" class="il-soft"/>
+  <g class="il-soft"><path d="M40 170v-14M62 170v-18"/></g><path d="M92 170v-28M120 170v-40M150 170v-58M182 170v-84" class="il"/>
+  <path d="M182 86v0" class="il-acc"/><path d="M40 156C90 150 140 120 184 82" class="il-acc il-dash"/>
+  <text x="20" y="196" class="il-t">older</text><text x="204" y="196" text-anchor="end" class="il-t">recent</text>
+  <path d="M220 128h36" class="il"/><path d="M248 122l8 6-8 6" class="il"/>
+  <text x="270" y="26" class="il-t-acc">2  Item-item model</text><text x="270" y="44" class="il-t">products bought together</text>
+  <circle cx="300" cy="90" r="11" class="il-fill"/><circle cx="300" cy="90" r="11" class="il-acc"/>
+  <g class="il-ground"><circle cx="380" cy="72" r="10"/><circle cx="400" cy="130" r="10"/><circle cx="340" cy="170" r="10"/><circle cx="440" cy="84" r="10"/></g>
+  <path d="M311 87l59-12M309 97l82 28M305 100l30 61" class="il-acc"/><path d="M390 72h40M409 126l25-34" class="il-soft"/>
+  <path d="M470 128h36" class="il"/><path d="M498 122l8 6-8 6" class="il"/>
+  <text x="520" y="26" class="il-t-acc">3  The carousel</text><text x="520" y="44" class="il-t">two per brand, sensitive items gated</text>
+  <rect x="524" y="66" width="52" height="52" rx="6" class="il-soft"/><path d="M545 77h8v6l4 5v19a3 3 0 0 1-3 3h-10a3 3 0 0 1-3-3v-19l4-5z" class="il"/><rect x="582" y="66" width="52" height="52" rx="6" class="il-soft"/><rect x="598" y="83" width="20" height="26" rx="3" class="il"/><path d="M598 91h20" class="il"/><rect x="640" y="66" width="52" height="52" rx="6" class="il-soft"/><path d="M659 81h14l-2 26h-10z" class="il"/><rect x="662" y="76" width="8" height="5" rx="1" class="il"/><rect x="524" y="124" width="52" height="52" rx="6" class="il-soft"/><rect x="541" y="143" width="18" height="24" rx="4" class="il"/><rect x="543" y="137" width="14" height="6" rx="2" class="il"/><rect x="582" y="124" width="52" height="52" rx="6" class="il-fill"/><rect x="597" y="141" width="22" height="18" rx="3" class="il-acc"/><circle cx="604" cy="150" r="2.5" class="il-acc"/><circle cx="612" cy="150" r="2.5" class="il-acc"/><rect x="640" y="124" width="52" height="52" rx="6" class="il-soft"/><rect x="658" y="139" width="16" height="28" rx="5" class="il"/><path d="M658 145h16" class="il"/>
+  <text x="520" y="200" class="il-t">a later purchase lands in the carousel</text>
+  <text x="520" y="216" class="il-t">= a hit at six</text>
+</svg>

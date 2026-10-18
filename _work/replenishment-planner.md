@@ -1,89 +1,84 @@
 ---
 title: A branch replenishment planner
 summary: A four-stage planner that sets branch stock, shares scarce stock fairly and routes trucks, with every figure explained.
-status: In client testing
-order: 3
+status: In acceptance testing
+question: How much should each branch hold, who gets scarce stock, and which truck carries it?
+stack: [Python, OR-Tools, FastAPI, React, BigQuery, Docker]
+order: 4
 ---
-Kalbe Farma · acting Data Science Lead · lead builder, with a small team.
+Kalbe Farma · 2026 to now · lead builder, with a small team.
 
 ## Problem
 
-A pharmaceutical distributor restocks its branches from a few distribution centres. Planners do it
-by hand in a spreadsheet: how much each branch should hold, how much to ship today, which centre
-fills it, and which truck carries it.
-
-The sheet works, but it is slow, it lives in one person's head, and nobody can see why a number is
-what it is. The planners wanted a tool they could use every morning instead, and they would keep
-the final say on every quantity.
+A national distribution company within the Kalbe group restocks its branches from a few distribution centres. Planners did it
+by hand in a spreadsheet: how much each branch should hold, how much to ship today, from which
+centre, on which truck. It was slow, and nobody could see why a number was what it was. The planners
+wanted a daily tool that explains itself, with the final say on every quantity kept by them.
 
 ## Constraints
 
-- **Planners decide.** The tool recommends and explains, and every figure can be overridden.
-- **The method has to match the data that exists.** There were no order or holding costs, so
-  textbook cost-optimal policies had nothing to optimise against.
-- **Stock is shared.** When a centre cannot cover every branch, someone has to go short, and the
-  rule for who goes short must be fair and explainable.
-- **Trucks have limits.** These include volume, payload, temperature class, region and vehicle size.
-- **Plans must reproduce.** The same morning's data must give the same plan on any machine.
+- **Planners decide.** The tool recommends and explains; every figure can be overridden.
+- **No cost data.** With no order or holding costs, textbook cost-optimal policies had nothing to optimise.
+- **Stock is shared.** When a centre cannot cover every branch, the rule for who goes short must be fair and explainable.
+- **Trucks have limits:** volume, payload, temperature class and region.
+- **Plans must reproduce** on any machine.
 
 ## Approach
 
-The planner runs in four stages per branch and product, and each stage consumes the one before.
+Four stages per branch and product, each consuming the one before.
 
 | Stage | Question | Method |
 |---|---|---|
 | 1. Standard stock | How much should the branch hold? | Days of cover times forecast daily demand |
-| 2. Shipment need | How much should we ship now? | Standard stock minus all pending supply, rounded to cartons |
-| 3. Allocation | Who gets scarce stock? | Committed orders first, then raise branches together toward the same days of cover |
+| 2. Shipment need | How much to ship now? | Standard stock minus all pending supply, rounded to cartons |
+| 3. Allocation | Who gets scarce stock? | Committed orders first, then raise branches together toward equal days of cover |
 | 4. Transport | Which truck, in what order? | Vehicle routing with pickup and delivery, then bin packing |
 
-**Coverage days as the policy.** With no cost data, days of cover is the
-parameter the business already maintains and understands. Safety stock is what remains of that
-cover after lead time and a shipping buffer.
+**Days of cover as the policy.** With no cost data, days of cover is the parameter the business
+already maintains and understands.
 
-**Count pending supply once.** Stock in transit, on hand, and committed but not yet released are
-each counted once, so goods on a truck are never ordered twice.
+**Even fill for allocation.** When stock is short, branches rise together toward the same days of
+cover, like water finding one level. The shortfall spreads evenly and the rule fits in one sentence.
 
-**Even fill for allocation.** When stock is short, branches are raised together toward the same
-days of cover, like water finding one level, so the shortfall spreads evenly and the rule fits in one sentence. Allocation needs no
-solver.
+**Routing that sheds the right freight.** Each delivery is optional in the routing model
+(OR-Tools), with a drop penalty that grows with priority and volume, so the lowest-priority freight
+is dropped first. The search stops after a fixed number of solutions, so plans reproduce
+on any machine.
 
-**Routing that sheds the right freight.** The routing model (OR-Tools) treats each delivery as
-optional, with a drop penalty that grows with priority and volume. If trucks cannot carry
-everything, the solver drops the lowest-priority freight first. The search stops after a fixed number
-of solutions instead of a fixed time, so plans reproduce across machines.
+**Every number explains itself.** Each figure carries a generated sentence naming its terms, and
+every planner override is kept beside the engine's figure.
 
-**Every number explains itself.** Each figure carries a generated sentence naming its terms. A
-planner's override is kept beside the engine's figure, and every accept, change or skip is stored
-with who and when.
 
-[![Four stages: standard stock, shipment need, allocation, transport, with planner override at each]({{ "/diagrams/replenishment-stages.svg" | relative_url }})]({{ "/diagrams/replenishment-stages.svg" | relative_url }})
+## How it's built
+
+| Layer | Tools |
+|---|---|
+| Inputs | Stock, demand forecasts, open orders and fleet data from BigQuery, refreshed each morning |
+| Engine | Python, pandas, OR-Tools (pickup and delivery, bin packing) |
+| Application | FastAPI back end, React and TypeScript web app with maps |
+| Users | Planner and logistics roles, sized for about ten planners at once |
+| Data | PostgreSQL for saved plans and overrides |
+| Delivery | Docker, GitLab CI with tests and an image build |
+
+I used days of cover as the policy because it is the parameter planners already maintain, and the
+data needed for a cost-optimal policy does not exist.
 
 ## How I knew it worked
 
-- **Invariants under test.** For example, allocated plus unserved equals demand, and no gap goes
-  below zero. The suite has over a thousand tests.
-- **Pinned expected outputs** for one frozen day of data, so any change to a formula shows
-  up as a difference someone has to accept.
-- **Daily data checks.** Each morning's data passes plausibility checks before the planner sees
-  it. A hard failure blocks the day, and a soft one flags the row.
-- **Timing budgets.** Opening a screen and re-planning after an edit each have a budget, measured
-  with a ten-user load script.
+- **Invariants under test,** such as allocated plus unserved equals demand.
+- **Pinned outputs** for one frozen day, so any formula change shows up as a difference someone must accept.
+- **Daily data checks.** Implausible data blocks the day or flags the row before a planner sees it.
 
-The planners' rules were copied line by line into a table beside the engine's rules. That is weaker than
-matching the numbers in their workbook, and no planner has run a real day on it yet, so
-there is no savings claim.
+The planners' rules were compared line by line with the engine's. That is weaker than matching
+their workbook's numbers, and no planner has run a real day on it yet, so there is no savings figure yet.
 
 ## What I'd change
 
-- **Match the spreadsheet's numbers early.** A numeric match on a handful of real days would have found
-  disagreements faster than reviewing rules.
-- **Ask for the missing inputs in week one.** Fleet per centre, vehicle costs and carton sizes are still
-  placeholders, and transport results depend on them most.
-- **Model demand uncertainty.** Safety stock comes from a maintained parameter. Deriving it from forecast
-  error would size it to the real risk per product.
+- **Match the spreadsheet's numbers early.** A numeric match on a few real days finds disagreements
+  faster than reviewing rules.
+- **Model demand uncertainty.** Deriving safety stock from forecast error would size it to each product's real risk.
 
 ## Status
 
-In client acceptance testing. The first two stages run on real data; allocation and transport wait
+In acceptance testing with the distribution company. The first two stages run on real data; allocation and transport wait
 on confirmed fleet and cost inputs.

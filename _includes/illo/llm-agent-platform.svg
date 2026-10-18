@@ -1,0 +1,15 @@
+<svg viewBox="0 0 320 180" role="img" aria-label="A question passes through an agent that fills a spec, three access checks, and returns a table.">
+  <path d="M14 58a12 12 0 0 1 12-12h40a12 12 0 0 1 12 12v18a12 12 0 0 1-12 12H40l-14 12V88a12 12 0 0 1-12-12z" class="il"/>
+  <text x="46" y="73" text-anchor="middle" class="il-t-acc">?</text>
+  <rect x="94" y="52" width="46" height="40" rx="6" class="il-fill"/><rect x="94" y="52" width="46" height="40" rx="6" class="il-acc"/>
+  <circle cx="110" cy="70" r="3" class="il-dot-acc"/><circle cx="124" cy="70" r="3" class="il-dot-acc"/>
+  <path d="M78 70h14M140 70h14" class="il"/>
+  <rect x="156" y="48" width="38" height="46" rx="4" class="il-ground"/><path d="M164 60h22M164 70h16M164 80h20" class="il-soft"/>
+  <path d="M194 70h12" class="il"/>
+  <g class="il-acc"><path d="M212 56v28M226 56v28M240 56v28"/></g>
+  <path d="M246 70h12" class="il"/>
+  <rect x="260" y="50" width="48" height="40" rx="4" class="il-ground"/><path d="M260 63h48M260 77h48M276 50v40M292 50v40" class="il-soft"/>
+  <rect x="40" y="118" width="22" height="18" rx="3" class="il"/><path d="M45 118v-6a6 6 0 0 1 12 0v6" class="il"/>
+  <path d="M62 127C140 150 200 140 226 88" class="il-acc il-dash"/>
+  <text x="72" y="160" class="il-t">user's access rights travel outside the model</text>
+</svg>

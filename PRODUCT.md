@@ -24,7 +24,7 @@ Applied data scientist in optimisation and decision science: frame the problem, 
 
 ## Capabilities and Constraints
 
-- Pages: home index (`/`), five case studies (`/work/<slug>/`), one essay (`/essay/`), CV PDF (`/cv.pdf`). Demos are added as they ship.
+- Pages: home (`/`), About (`/about/`), six case studies (`/work/<slug>/`), one essay (`/essay/`), CV PDF (`/cv.pdf`). Demos are linked once their GitHub Pages sites are live.
 - Disclosure: employer and role only, no internals. No real business figures, no real screenshots.
 - Every project shows its status in plain words near the top.
 - English only.
@@ -34,7 +34,7 @@ Applied data scientist in optimisation and decision science: frame the problem, 
 - Case studies in `_work/`, essay in `essay.md`, CV at `cv.pdf`.
 - Paper: F. C. Asyuraa et al., J. Phys.: Conf. Ser. 1722 012096 (2021).
 - Thesis repo: github.com/faathirchikal/marl-tsc-jakarta-corridor.
-- Generic redrawn diagrams arrive later (four SVGs). No testimonials, no confirmed Kalbe results; none may be invented.
+- Inline SVG line drawings per project (synthetic content only). No testimonials, no confirmed Kalbe results; none may be invented.
 
 ## Product Principles
 

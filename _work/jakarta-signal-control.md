@@ -2,21 +2,27 @@
 title: Where the leverage sits in Jakarta signal control
 summary: A benchmark of nine traffic-signal controllers on a simulated 12-junction Jakarta corridor. Learned control held 43.5% less queue than the best classical method in the model.
 status: Research, Monash thesis
+question: Where do the gains in learned signal control come from on a motorcycle-heavy road?
+stack: [Python, SUMO, PPO, SLURM HPC]
 order: 1
+photo: /figures/cawang.jpg
+photo_w: 1600
+photo_h: 682
+photo_alt: Motorcycles fill the gaps between cars, a minibus and a bus on an arterial road at Cawang, Jakarta.
+photo_credit: 'Cawang, Jakarta. Photograph by Fikri RA, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.'
 ---
 
 Monash University · Master of Data Science thesis · sole code author, first author with supervisor
-Muhamad Risqi Utama Saputra. Research paper submitted for the degree in September 2026,
-not peer-reviewed. Code and results: [marl-tsc-jakarta-corridor](https://github.com/faathirchikal/marl-tsc-jakarta-corridor).
+Muhamad Risqi Utama Saputra. Not peer-reviewed. Code and results:
+[marl-tsc-jakarta-corridor](https://github.com/faathirchikal/marl-tsc-jakarta-corridor).
 
 ## Problem
 
-Jakarta's arterial roads are saturated, and about three in four vehicles on them are motorcycles.
-Research on learned traffic-signal control mostly uses car traffic on tidy grids. I wanted to know
-where the gains actually come from on a road like this. Is it the learning itself, coordination
-between junctions, or the rules on which signal phase may come next?
+About three in four vehicles on Jakarta's saturated arterial roads are motorcycles, while research
+on learned signal control mostly uses cars on tidy grids. I wanted to know where the gains come from
+on a road like this: the learning itself, coordination between junctions, or the rules on which
+signal phase may come next.
 
-[![Published work assumes cars that hold their lanes. On this corridor, motorcycles fill every gap and enter the junction.]({{ "/figures/d_filtering.png" | relative_url }})]({{ "/figures/d_filtering.png" | relative_url }})
 
 ## Constraints
 
@@ -27,7 +33,6 @@ between junctions, or the rules on which signal phase may come next?
   skips around may look good only because it breaks that rule.
 - **Learned controllers are noisy.** One lucky training run proves nothing.
 
-[![Three phase-order rules: a fixed rotation, a rotation that may skip an empty phase, and a free choice of any phase next.]({{ "/figures/d_phases.png" | relative_url }})]({{ "/figures/d_phases.png" | relative_url }})
 
 ## Approach
 
@@ -40,13 +45,24 @@ motorcycles.
 
 [![The corridor map with its twelve junctions, and the nested corridor sizes from one to twelve junctions.]({{ "/figures/corridor_map.png" | relative_url }})]({{ "/figures/corridor_map.png" | relative_url }})
 
-**Nine controllers.** These are fixed-time, coordinated fixed-time, two versions of Max-Pressure
-(the strongest classical method here), and learned controllers trained with PPO. The learned ones
-range from fully independent agents to agents sharing a central critic, built three ways (MLP,
-graph attention, and graph attention with time).
+**Nine controllers.** Four classical: fixed-time, coordinated fixed-time, and two versions of
+Max-Pressure (the strongest classical method here). Four learned with PPO: independent agents, and
+agents sharing a central critic built three ways (MLP, graph attention, graph attention with time).
+The ninth, IQL, is a weaker learner kept as a positive control.
 
-**A ladder of sizes.** Every controller runs on 1, 3, 6, 9 and 12 junctions, so I could see where
-learning starts to pay.
+**A ladder of sizes.** Every controller runs on 1, 3, 6, 9 and 12 junctions, to see where learning starts to pay.
+
+## How it's built
+
+| Layer | Tools |
+|---|---|
+| Road network and demand | OpenStreetMap, SUMO, a gravity demand model checked against TomTom and Google Routes |
+| Controllers | Python, PPO (independent and shared-critic agents), Max-Pressure |
+| Compute | Monash M3 HPC (SLURM), 10 seeds per controller |
+| Analysis | Equivalence tests, bootstrap intervals, every paper number re-derived from committed results |
+
+I used a fixed equivalence margin because the question was which levers matter, and a margin set in
+advance is what lets "no difference" count as a finding.
 
 ## How I knew it worked
 
@@ -54,7 +70,7 @@ learning starts to pay.
   bootstrap intervals.
 - **A margin set in advance.** Two controllers count as equivalent when they are within 15 halting
   vehicles of each other, using a formal equivalence test. I fixed that margin before seeing results.
-- **A positive control.** A weaker learning method (IQL) had to come out worse, and it did, by 25.7
+- **A positive control.** IQL had to come out worse, and it did, by 25.7
   halting vehicles. That shows the test can tell controllers apart.
 - **Every number re-derives.** All 595 numbers in the paper are recomputed from the results
   committed to the public repo.
@@ -71,7 +87,7 @@ learning starts to pay.
 [![Queues by corridor size for each controller type, and the best learned controller against Max-Pressure. The gap leaves the 15-vehicle margin from six junctions and reaches 43.5% at twelve.]({{ "/figures/scale_crossover.png" | relative_url }})]({{ "/figures/scale_crossover.png" | relative_url }})
 
 At twelve junctions the levers rank clearly. The control strategy matters most, at about 143
-fewer halting vehicles from about 330. The deployable phase order costs 35 to 38. Coordination
+fewer halting vehicles from about 330. The deployable phase order costs 35 to 38, which is the 19 to 20% in the table. Coordination
 through a critic stays inside the margin.
 
 **The limit.** The simulated corridor fails the standard calibration check against real traffic
@@ -84,11 +100,9 @@ controllers inside the model. They are not a forecast for the real street.
   something on the street.
 - **Add stronger classical baselines,** such as signal timings set by Webster's method and
   vehicle-actuated control, which real cities already run.
-- **Report the timings each controller actually used,** so a traffic engineer can judge whether a
-  plan is one they would sign off.
 
 ## Status
 
-Submitted in September 2026 as the research paper for my Master of Data Science, and presented
-as a poster. It is not peer-reviewed. The public repo has the code and every result file. The full
-12-junction run needs files that are too large to publish, and a small 3×3 grid runs end to end from a clone.
+Submitted in September 2026 as my Master of Data Science research paper, and presented as a
+poster. Not peer-reviewed. The public repo has the code and every result file; a small 3×3 grid
+runs end to end from a clone.
