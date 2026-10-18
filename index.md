@@ -20,3 +20,6 @@ policies on simulated message arms, including a best arm that swaps halfway.
 
 [Decay-aware routing](https://faathirchikal.github.io/decay-routing-demo/) sweeps departure time against fleet
 size for a product that decays on the road, with an OR-Tools routing solve in each cell.
+
+[Experiment design lab](https://faathirchikal.github.io/experiment-design-lab/) simulates what daily peeking does
+to an A/B test's error rate, and what CUPED and a sample ratio check buy.
