@@ -53,7 +53,7 @@ a business result, so this case study claims none. That gap drives most of the l
 
 - **Simulate before launch.** The repository holds no offline simulator, so live traffic was the
   allocator's first real test. A simulator with known true rates would have checked regret and
-  recovery from drift before any customer saw a message. The bandit demo on this site is that simulator.
+  recovery from drift before any customer saw a message. The [bandit simulator](https://faathirchikal.github.io/campaign-bandit-simulator/) is that test.
 - **Show the uncertainty.** The lift intervals belonged on the CRM team's report, so they could see
   which arms the allocator favoured and how sure it was.
 - **Fail loudly.** If the bandit step raised an error, the job fell back to an even split and only
