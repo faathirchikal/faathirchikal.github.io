@@ -55,6 +55,9 @@ That turns one hard problem into a sweep of easy ones.
 an error, never a shorter plan. A plan that has been reviewed is used exactly as approved and never
 re-solved, because a time-limited solver can return a different answer on a second run.
 
+The [decay-aware routing demo](https://faathirchikal.github.io/decay-routing-demo/) rebuilds the sweep on an
+invented city, with four scenarios and tests for the decay physics.
+
 ## How I knew it worked
 
 - **Physics tests.** The decay formula round-trips, multi-leg journeys decay the same as one long

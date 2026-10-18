@@ -17,3 +17,6 @@ went right and three where it did not, and the rule I took from them.
 
 [Campaign bandit simulator](https://faathirchikal.github.io/campaign-bandit-simulator/) runs four allocation
 policies on simulated message arms, including a best arm that swaps halfway.
+
+[Decay-aware routing](https://faathirchikal.github.io/decay-routing-demo/) sweeps departure time against fleet
+size for a product that decays on the road, with an OR-Tools routing solve in each cell.
