@@ -1,10 +1,10 @@
 ---
 title: Dispatch planning for a product that decays on the road
-summary: A planner that routes a radiopharmaceutical with a half-life under two hours and sets each batch's dose. In client acceptance testing.
+summary: A planner that routes a radiopharmaceutical with a half-life under two hours and sets each batch's dose.
 status: In client testing
 order: 2
 ---
-Kalbe Farma · acting Data Science Lead · lead builder, with a small team. **Status:** in client acceptance testing.
+Kalbe Farma · acting Data Science Lead · lead builder, with a small team.
 
 ## Problem
 

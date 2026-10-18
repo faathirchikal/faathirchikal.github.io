@@ -6,7 +6,7 @@ order: 1
 ---
 
 Monash University · Master of Data Science thesis · sole code author, first author with supervisor
-Muhamad Risqi Utama Saputra. **Status:** research paper submitted for the degree in September 2026,
+Muhamad Risqi Utama Saputra. Research paper submitted for the degree in September 2026,
 not peer-reviewed. Code and results: [marl-tsc-jakarta-corridor](https://github.com/faathirchikal/marl-tsc-jakarta-corridor).
 
 ## Problem

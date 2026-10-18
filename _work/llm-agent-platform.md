@@ -1,10 +1,10 @@
 ---
 title: A governed platform for data question agents
-summary: A platform where a team describes its tables in YAML and gets an LLM agent that answers data questions without ever seeing data it shouldn't. In development.
+summary: A platform where a team describes its tables in YAML and gets an LLM agent that answers data questions without ever seeing data it shouldn't.
 status: In development
 order: 4
 ---
-Kalbe Farma · acting Data Science Lead · sole designer and builder. **Status:** in development.
+Kalbe Farma · acting Data Science Lead · sole designer and builder.
 
 ## Problem
 

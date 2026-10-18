@@ -1,10 +1,10 @@
 ---
 title: A branch replenishment planner
-summary: A four-stage planner that sets branch stock, shares scarce stock fairly and routes trucks, with every figure explained. In client acceptance testing.
+summary: A four-stage planner that sets branch stock, shares scarce stock fairly and routes trucks, with every figure explained.
 status: In client testing
 order: 3
 ---
-Kalbe Farma · acting Data Science Lead · lead builder, with a small team. **Status:** in client acceptance testing.
+Kalbe Farma · acting Data Science Lead · lead builder, with a small team.
 
 ## Problem
 

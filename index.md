@@ -10,7 +10,6 @@ and prove it against an answer key. Currently Data Science Senior Supervisor (ac
 
 ## Essay
 
-[Knowing whether it works]({{ "/essay/" | relative_url }}).
-
-Two projects where measurement went right, three where it did not, and the rule I took from them.
+[Knowing whether it works]({{ "/essay/" | relative_url }}) looks at two projects where measurement
+went right and three where it did not, and the rule I took from them.
 

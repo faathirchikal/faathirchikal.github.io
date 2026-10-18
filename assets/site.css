@@ -150,7 +150,6 @@ main.wrap { padding-top: clamp(2rem, 5vw, 3rem); }
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--rule);
 }
-.notice + .prose > p:first-child strong { font-weight: 500; }
 .notice span {
   font-weight: 500;
   text-transform: uppercase;

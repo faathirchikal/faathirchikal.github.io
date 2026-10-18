@@ -4,8 +4,8 @@ summary: A Thompson-sampling allocator that moved campaign sends toward messages
 status: Replaced in 2026
 order: 5
 ---
-Kalbe Farma · Data Scientist · built the allocation logic. **Status:** ran in production until a later
-version replaced it with fixed rules.
+Kalbe Farma · Data Scientist · built the allocation logic. Ran in production until a later version
+replaced it with fixed rules.
 
 ## Problem
 
