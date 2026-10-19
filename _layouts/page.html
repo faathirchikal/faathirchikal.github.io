@@ -13,8 +13,7 @@
 <body>
 {%- assign home = "/" | relative_url -%}
 {%- capture navlinks -%}
-  <a href="{{ home }}#work"{% if page.collection == "work" %} aria-current="page"{% endif %}>Work</a>
-  <a href="{{ home }}#more">More work</a>
+  <a href="{{ home }}#work"{% if page.collection == "work" %} aria-current="page"{% endif %}>Case studies</a>
   <a href="{{ "/essay/" | relative_url }}"{% if page.url == "/essay/" %} aria-current="page"{% endif %}>Essay</a>
   <a href="{{ home }}#demos">Demos</a>
   <a href="{{ "/about/" | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
@@ -44,7 +43,7 @@
 {%- elsif page.collection == "work" %}
   {%- assign work = site.work | sort: "order" -%}
   <main class="wrap">
-    <p class="crumb"><a href="{{ home }}#work">Work</a> / {{ page.title }}</p>
+    <p class="crumb"><a href="{{ home }}#work">Case studies</a> / {{ page.title }}</p>
     <h1 class="title">{{ page.title }}</h1>
     {%- if page.question %}<p class="question">{{ page.question }}</p>{% endif %}
     <div class="meta">

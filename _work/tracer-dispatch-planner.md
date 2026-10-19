@@ -67,7 +67,7 @@ standard routing problem that is fast to solve and easy to explain to planners.
 
 - **Physics tests.** The decay formula round-trips, and a multi-leg journey decays the same as one long leg.
 - **Exhaustive check.** The fleet allocation matches full enumeration on small cases.
-- **A pinned reference day.** Any change in behaviour shows up as a difference someone must accept.
+- **A pinned reference day.** Any change in behavior shows up as a difference someone must accept.
 - **The manufacturer's own numbers.** The production figures reproduce the manufacturer's workbook.
 
 I also tested letting vehicles make a second trip. It raised total activity on the test case, so it stays off.

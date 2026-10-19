@@ -200,7 +200,7 @@ Two containers, both padded by a 16px gutter: a 68rem **wide** column for the ba
 - **Home intro:** two equal columns (text, then a 2×2 drawing mosaic), collapsing to one column at 52rem.
 - **Timeline:** full wide column inside a panel; its SVG holds a 900px minimum and scrolls horizontally. Below 60rem it opens scrolled to the recent end.
 - **Case cards:** auto-fill grid, minimum min(100%, 20rem), 1rem gap.
-- **More work:** two CSS columns (min 22rem, 2.5rem gap), groups never split.
+- **Other projects:** two CSS columns (min 22rem, 2.5rem gap), groups never split.
 - **Flagship story:** stacked rows split 11rem heading / content, collapsing to one column at 40rem.
 - **Case page order:** crumb, title, question, chip and tags, hero figure, jump links, prose, two-up pager (one-up below 34rem).
 - **Mobile:** below 52rem the nav and external buttons fold into the Menu disclosure. Below 40rem hero and story drawings keep a 34rem minimum, scroll sideways, and print a muted "Scroll sideways" hint.

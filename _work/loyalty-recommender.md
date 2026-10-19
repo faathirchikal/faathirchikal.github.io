@@ -53,7 +53,7 @@ carousel holds something the member later bought.
 
 A second, untouched cut-off gave the same picture. Among the candidates, the shipped model was 4.5%
 behind the most accurate one, inside the margin I fixed before the results, and it raised the
-worst-segment catalogue coverage from 0.511 to 0.774.
+worst-segment catalog coverage from 0.511 to 0.774.
 
 These are offline numbers. No A/B test has run, so there is no business result yet.
 

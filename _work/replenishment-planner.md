@@ -10,16 +10,16 @@ Kalbe Farma · 2026 to now · lead builder, with a small team.
 
 ## Problem
 
-A national distribution company within the Kalbe group restocks its branches from a few distribution centres. Planners did it
+A national distribution company within the Kalbe group restocks its branches from a few distribution centers. Planners did it
 by hand in a spreadsheet: how much each branch should hold, how much to ship today, from which
-centre, on which truck. It was slow, and nobody could see why a number was what it was. The planners
+center, on which truck. It was slow, and nobody could see why a number was what it was. The planners
 wanted a daily tool that explains itself, with the final say on every quantity kept by them.
 
 ## Constraints
 
 - **Planners decide.** The tool recommends and explains; every figure can be overridden.
-- **No cost data.** With no order or holding costs, textbook cost-optimal policies had nothing to optimise.
-- **Stock is shared.** When a centre cannot cover every branch, the rule for who goes short must be fair and explainable.
+- **No cost data.** With no order or holding costs, textbook cost-optimal policies had nothing to optimize.
+- **Stock is shared.** When a center cannot cover every branch, the rule for who goes short must be fair and explainable.
 - **Trucks have limits:** volume, payload, temperature class and region.
 - **Plans must reproduce** on any machine.
 

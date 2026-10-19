@@ -1,12 +1,12 @@
 - {skill: Forecasting, illo: forecast, title: Sales reporting and forecasting at Blibli, line: "Sales reports, sales forecasts and ad hoc analysis for the business, as a data analyst.", status: "2021–2022"}
 - {skill: Forecasting, illo: forecast, title: B2B sales forecasting, line: "A forecasting model for business-to-business sales at Kalbe.", status: "2023"}
-- {skill: LLMs, illo: news, title: News monitoring, line: "Collects daily news about the company and summarises it with an LLM for the teams who follow coverage.", status: "Live since 2024"}
+- {skill: LLMs, illo: news, title: News monitoring, line: "Collects daily news about the company and summarizes it with an LLM for the teams who follow coverage.", status: "Live since 2024"}
 - {skill: Data quality, illo: masterdata, title: "Master data: product, outlet, customer", line: "Matching records that describe the same product, outlet or customer, measured against hand-checked answer sets.", status: "In development"}
 - {skill: Data platform, illo: cdp, title: Customer data platform, line: "One customer view across several consumer health apps, with audience counts per channel and masked lookups.", status: "In development"}
 - {skill: Computer vision, illo: shelf, title: Shelf share from photos, line: "Object detection (YOLO) and OCR (Tesseract) to measure each brand's share of shelf space.", status: Proof of concept}
 - {skill: Computer vision, illo: fraud, title: Image fraud scoring, line: "Retrained an existing image model to score submitted images for fraud.", status: Delivered}
-- {skill: Speech, illo: call, title: Call transcription, line: "Speech-to-text (Whisper) so recorded calls can be searched and analysed.", status: In development}
-- {skill: Optimisation, illo: siting, title: Fulfilment-centre siting, line: "Facility location analysis as a p-median mixed-integer program.", status: Paused}
+- {skill: Speech, illo: call, title: Call transcription, line: "Speech-to-text (Whisper) so recorded calls can be searched and analyzed.", status: In development}
+- {skill: Optimization, illo: siting, title: Fulfilment-center siting, line: "Facility location analysis as a p-median mixed-integer program.", status: Paused}
 - {skill: Anomaly detection, illo: discount, title: Discount alerts, line: "Flags unusual discount transactions for the audit team.", status: In development}
 - {skill: Simulation, illo: picker, title: Picker simulation, line: "Follow-up to the picking trial: simulates total picker minutes, with the layout derived from transaction data.", status: Waiting on data}
 - {skill: Causal inference, illo: event, title: Event-to-sales study, line: "Geographic controls, placebo dates and permutation tests on promotional events.", status: Paused, link: "/essay/#the-study-with-no-control"}

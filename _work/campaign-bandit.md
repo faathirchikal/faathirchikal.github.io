@@ -1,8 +1,8 @@
 ---
 title: Campaign allocation with a discounted bandit
-summary: A Thompson-sampling allocator that moved campaign sends toward messages beating their control group. Ran in production until replaced by fixed rules.
-status: Replaced in 2026
-question: How should campaign sends shift toward the messages that work, while behaviour drifts?
+summary: A Thompson-sampling allocator that moved campaign sends toward messages beating their control group.
+status: Deployed
+question: How should campaign sends shift toward the messages that work, while behavior drifts?
 stack: [Python, Thompson sampling, Docker, GitLab CI]
 order: 6
 ---
@@ -18,7 +18,7 @@ without recomputing shares by hand.
 ## Constraints
 
 - **Conversion is relative.** Promotions move every arm together, so an arm is good only when it beats its control.
-- **Behaviour drifts,** so old results should count for less.
+- **Behavior drifts,** so old results should count for less.
 - **Arms come and go,** and a new arm has no data.
 - **No arm may starve.** Every arm needs enough sends to keep learning.
 
@@ -55,10 +55,11 @@ the allocator against known answers, and no business result has been confirmed.
 
 - **Simulate before launch.** A simulator with known true rates checks regret and recovery from
   drift before any customer sees a message. The [bandit simulator](https://faathirchikal.github.io/campaign-bandit-simulator/) shows that kind of test on synthetic data.
-- **Show the uncertainty** to the CRM team, so they can see which arms are favoured and how surely.
+- **Show the uncertainty** to the CRM team, so they can see which arms are favored and how surely.
 - **Define the exit.** Freezing a converged bandit into fixed rules is a reasonable end state, but
   the condition for it should be written down at launch.
 
+
 ## Status
 
-Replaced in 2026 by a version that sends by fixed rules, with no learned allocation.
+Built and deployed as a daily batch job for the CRM team.

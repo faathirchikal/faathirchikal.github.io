@@ -22,7 +22,7 @@ projects:
   - {lane: study, row: 0, title: "Signal-control thesis", anchor: end, status: live, start: "2026-01", end: "2026-09", link: /work/jakarta-signal-control/}
   - {lane: blibli, row: 2, title: "Sales reporting, forecasting, ad hoc analysis", status: live, start: "2021-03", end: "2022-12"}
   - {lane: blibli, row: 0, title: "Similar-product detection", anchor: end, status: live, start: "2022-07", end: "2022-12"}
-  - {lane: blibli, row: 1, title: "Catalogue product grouping", status: live, start: "2023-01", end: "2023-07"}
+  - {lane: blibli, row: 1, title: "Catalog product grouping", status: live, start: "2023-01", end: "2023-07"}
   - {lane: kalbe, row: 0, title: "Campaign bandit", status: live, start: "2024-01", end: "2026-03", link: /work/campaign-bandit/}
   - {lane: kalbe, row: 0, title: "Loyalty recommender", status: live, start: "2026-09", end: "", link: /work/loyalty-recommender/}
   - {lane: kalbe, row: 3, title: "B2B sales forecasting", status: live, start: "2023-08", end: "2023-12"}

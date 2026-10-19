@@ -47,7 +47,7 @@ The follow-up used geographic controls, placebo dates and permutation tests. It 
 delayed, local signal that is still only a correlation. A causal number needs a randomised holdout,
 and that is the business's decision to make.
 
-**What I do now.** Before modelling an effect, I name the comparison group. If there isn't one, the
+**What I do now.** Before modeling an effect, I name the comparison group. If there isn't one, the
 deliverable is an experiment design, and I say so at the start.
 
 ### The trial that improved the wrong number
